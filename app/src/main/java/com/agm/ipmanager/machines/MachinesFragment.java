@@ -14,7 +14,7 @@ public class MachinesFragment extends Fragment {
     public MachinesFragment() {
     }
 
-    public static MachinesFragment newInstance(String param1, String param2) {
+    public static MachinesFragment newInstance() {
         MachinesFragment fragment = new MachinesFragment();
         return fragment;
     }

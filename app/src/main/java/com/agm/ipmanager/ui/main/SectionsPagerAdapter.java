@@ -9,16 +9,15 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.agm.ipmanager.R;
+import com.agm.ipmanager.deploys.DeploysFragment;
+import com.agm.ipmanager.machines.MachinesFragment;
+import com.agm.ipmanager.settings.SettingsFragment;
 import com.agm.ipmanager.status.StatusFragment;
 
-/**
- * A [FragmentPagerAdapter] that returns a fragment corresponding to
- * one of the sections/tabs/pages.
- */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_0, R.string.tab_1, R.string.tab_2, R.string.tab_3};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -31,6 +30,12 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         switch (position) {
             case 0:
                 return StatusFragment.newInstance();
+            case 1:
+                return DeploysFragment.newInstance();
+            case 2:
+                return MachinesFragment.newInstance();
+            case 3:
+                return SettingsFragment.newInstance();
         }
         return PlaceholderFragment.newInstance(position + 1);
     }
@@ -43,7 +48,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // Show 2 total pages.
-        return 2;
+        return TAB_TITLES.length;
     }
 }
