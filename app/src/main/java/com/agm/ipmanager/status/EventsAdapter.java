@@ -11,8 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.agm.ipmanager.Event;
-import com.agm.ipmanager.EventType;
+import com.agm.ipmanager.events.Event;
+import com.agm.ipmanager.events.EventType;
 import com.agm.ipmanager.R;
 
 import java.util.ArrayList;

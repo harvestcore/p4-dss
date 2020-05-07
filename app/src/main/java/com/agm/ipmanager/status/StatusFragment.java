@@ -12,10 +12,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.agm.ipmanager.EventManager;
+import com.agm.ipmanager.events.EventManager;
 import com.agm.ipmanager.IPManager;
 import com.agm.ipmanager.R;
 import com.agm.ipmanager.Service;
+
+import java.util.HashMap;
 
 public class StatusFragment extends Fragment {
     RecyclerView statusRecyclerView;
@@ -47,17 +49,28 @@ public class StatusFragment extends Fragment {
         // Set server status
         serverStatusText = root.findViewById(R.id.serverStatusText);
         String serverName = IPManager.getInstance().getServerName();
-        serverStatusText.setText(serverName.isEmpty() ? "Server status" : serverName + " status");
+        serverStatusText.setText(serverName.isEmpty() ? "Server status" : serverName);
+
+        // Server online?
+        boolean isOnline = IPManager.getInstance().isOnline();
+        HashMap<Service, Boolean> servicesStatus = IPManager.getInstance().getServicesStatus();
+        isOnline = servicesStatus == null ? false : true;
 
         // Mongo service status icon
         mongoStatusImage = root.findViewById(R.id.mongoStatusImage);
-        boolean mongoStatus = IPManager.getInstance().getServiceStatus(Service.MONGO);
-        mongoStatusImage.setImageResource(mongoStatus ? R.drawable.up : R.drawable.down);
+        if (isOnline) {
+            mongoStatusImage.setImageResource(servicesStatus.get(Service.MONGO) ? R.drawable.up : R.drawable.down);
+        } else {
+            mongoStatusImage.setImageResource(R.drawable.offline);
+        }
 
         // Docker service status icon
         dockerStatusImage = root.findViewById(R.id.dockerStatusImage);
-        boolean dockerStatus = IPManager.getInstance().getServiceStatus(Service.MONGO);
-        mongoStatusImage.setImageResource(dockerStatus ? R.drawable.up : R.drawable.down);
+        if (isOnline) {
+            dockerStatusImage.setImageResource(servicesStatus.get(Service.DOCKER) ? R.drawable.up : R.drawable.down);
+        } else {
+            dockerStatusImage.setImageResource(R.drawable.offline);
+        }
 
         return root;
     }

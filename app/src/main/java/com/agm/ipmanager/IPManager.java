@@ -1,8 +1,15 @@
 package com.agm.ipmanager;
 
+import com.agm.ipmanager.API.APIConnector;
+import com.agm.ipmanager.credentials.CredentialsManager;
+
+import java.util.HashMap;
+
 public class IPManager {
     private static IPManager ipManager;
     private String serverName = "";
+
+    private HashMap<Service, Boolean> servicesStatus;
 
     private IPManager() {}
 
@@ -22,13 +29,15 @@ public class IPManager {
         this.serverName = serverName;
     }
 
-    public boolean getServiceStatus(Service service) {
-        if (service == Service.DOCKER) {
-            return true;
-        } else if (service == Service.MONGO) {
-            return false;
-        }
+    public boolean isOnline() {
+        return CredentialsManager.getInstance().isOnline();
+    }
 
-        return false;
+    public HashMap<Service, Boolean> getServicesStatus() {
+        return this.servicesStatus;
+    }
+
+    public void recalculateServicesStatus() {
+        this.servicesStatus = APIConnector.getInstance().getServiceStatus();
     }
 }

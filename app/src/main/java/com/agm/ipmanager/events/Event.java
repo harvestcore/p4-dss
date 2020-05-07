@@ -1,4 +1,4 @@
-package com.agm.ipmanager;
+package com.agm.ipmanager.events;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

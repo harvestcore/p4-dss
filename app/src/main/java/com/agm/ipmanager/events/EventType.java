@@ -1,4 +1,4 @@
-package com.agm.ipmanager;
+package com.agm.ipmanager.events;
 
 public enum EventType {
     DEPLOY,

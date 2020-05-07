@@ -1,4 +1,4 @@
-package com.agm.ipmanager;
+package com.agm.ipmanager.events;
 
 import java.util.ArrayList;
 
@@ -29,6 +29,6 @@ public class EventManager {
             events.clear();
         }
 
-        events.add(e);
+        events.add(0, e);
     }
 }
