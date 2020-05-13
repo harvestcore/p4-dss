@@ -12,15 +12,13 @@ import android.widget.EditText;
 
 import com.agm.ipmanager.IPManager;
 import com.agm.ipmanager.R;
-import com.agm.ipmanager.credentials.Credentials;
-import com.agm.ipmanager.credentials.CredentialsManager;
-
-import java.io.IOException;
 
 public class SettingsFragment extends Fragment {
     EditText serverNameInput;
+    EditText updateIntervalEditText;
     Button setServerNameButton;
     Button setServerCredentialsButton;
+    Button setUpdateIntervalButton;
 
     public SettingsFragment() {
     }
@@ -43,20 +41,15 @@ public class SettingsFragment extends Fragment {
         // Server name
         serverNameInput = root.findViewById(R.id.serverNameInput);
 
-        if (CredentialsManager.getInstance().hasServerName()) {
-            serverNameInput.setText(CredentialsManager.getInstance().getServerName());
+        if (IPManager.getInstance().hasServerName()) {
+            serverNameInput.setText(IPManager.getInstance().getServerName());
         }
 
         setServerNameButton = root.findViewById(R.id.setServerNameButton);
         setServerNameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    CredentialsManager.getInstance().saveServerName(serverNameInput.getText().toString());
-                    IPManager.getInstance().setServerName(CredentialsManager.getInstance().getServerName());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                IPManager.getInstance().saveServerName(serverNameInput.getText().toString());
             }
         });
 
@@ -67,6 +60,28 @@ public class SettingsFragment extends Fragment {
             public void onClick(View v) {
                 CredentialsDialog credentialsDialog = new CredentialsDialog();
                 credentialsDialog.show(getActivity().getSupportFragmentManager(), "Credentials");
+            }
+        });
+
+        // Set interval
+        updateIntervalEditText = root.findViewById(R.id.updateIntervalEditText);
+        updateIntervalEditText.setText(Integer.toString(IPManager.getInstance().getUpdateInterval()));
+
+        setUpdateIntervalButton = root.findViewById(R.id.setUpdateIntervalButton);
+        setUpdateIntervalButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int value = 30;
+                String strValue = updateIntervalEditText.getText().toString();
+                if (!strValue.isEmpty()) {
+                    value = Integer.parseInt(strValue);
+                    if (value == 0 || value < 5) {
+                        value = 5;
+                    }
+                }
+
+                IPManager.getInstance().setUpdateInterval(value);
+                updateIntervalEditText.setText(Integer.toString(value));
             }
         });
 

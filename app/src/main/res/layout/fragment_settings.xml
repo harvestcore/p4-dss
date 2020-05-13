@@ -8,6 +8,16 @@
     tools:context=".settings.SettingsFragment">
 
 
+    <Button
+        android:id="@+id/setUpdateIntervalButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="Set"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/updateIntervalEditText" />
+
     <EditText
         android:id="@+id/serverNameInput"
         android:layout_width="wrap_content"
@@ -27,13 +37,11 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
         android:text="Set"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/serverNameInput"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/serverNameInput" />
 
     <Button
         android:id="@+id/setServerCredentialsButton"
@@ -45,4 +53,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/serverNameInput" />
+
+    <EditText
+        android:id="@+id/updateIntervalEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:digits="0123456789"
+        android:ems="10"
+        android:hint="Update interval (s)"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/setUpdateIntervalButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setServerCredentialsButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

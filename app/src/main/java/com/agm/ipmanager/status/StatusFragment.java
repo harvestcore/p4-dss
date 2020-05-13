@@ -43,7 +43,7 @@ public class StatusFragment extends Fragment {
         // Events recyclerView
         statusRecyclerView = root.findViewById(R.id.eventsRecyclerView);
         statusRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        EventsAdapter eventsAdapter = new EventsAdapter(getContext(), EventManager.getInstance().getEvents());
+        EventsAdapter eventsAdapter = new EventsAdapter(getContext(), IPManager.getInstance().getEvents());
         statusRecyclerView.setAdapter(eventsAdapter);
 
         // Set server status
@@ -52,9 +52,8 @@ public class StatusFragment extends Fragment {
         serverStatusText.setText(serverName.isEmpty() ? "Server status" : serverName);
 
         // Server online?
-        boolean isOnline = IPManager.getInstance().isOnline();
         HashMap<Service, Boolean> servicesStatus = IPManager.getInstance().getServicesStatus();
-        isOnline = servicesStatus == null ? false : true;
+        boolean isOnline = servicesStatus == null ? false : true;
 
         // Mongo service status icon
         mongoStatusImage = root.findViewById(R.id.mongoStatusImage);
@@ -78,6 +77,6 @@ public class StatusFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        statusRecyclerView.setAdapter(new EventsAdapter(getContext(), EventManager.getInstance().getEvents()));
+        statusRecyclerView.setAdapter(new EventsAdapter(getContext(), IPManager.getInstance().getEvents()));
     }
 }

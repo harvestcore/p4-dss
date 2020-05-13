@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
 
         // Initialize managers
-        APIConnector.getInstance().setContext(getBaseContext());
-        CredentialsManager.getInstance().setView(findViewById(android.R.id.content).getRootView());
+        IPManager.getInstance().setContext(getBaseContext());
+        IPManager.getInstance().setView(findViewById(android.R.id.content).getRootView());
 
         // Run scheduled job
         scheduleJob();

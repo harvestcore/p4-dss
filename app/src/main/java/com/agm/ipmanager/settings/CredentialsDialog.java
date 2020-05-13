@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.agm.ipmanager.API.APIConnector;
+import com.agm.ipmanager.IPManager;
 import com.agm.ipmanager.credentials.Credentials;
 import com.agm.ipmanager.R;
 import com.agm.ipmanager.credentials.CredentialsManager;
@@ -46,12 +47,8 @@ public class CredentialsDialog extends AppCompatDialogFragment {
                     credentialsPassword.getText().toString()
                 );
 
-                try {
-                    CredentialsManager.getInstance().saveCredentials(credentials);
-                    APIConnector.getInstance().login();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                IPManager.getInstance().saveCredentials(credentials);
+                IPManager.getInstance().login();
             }
         });
 
@@ -59,8 +56,8 @@ public class CredentialsDialog extends AppCompatDialogFragment {
         credentialsPassword = view.findViewById(R.id.credentialsPassword);
         credentialsHostname = view.findViewById(R.id.credentialsHostname);
 
-        if (CredentialsManager.getInstance().hasCredentials()) {
-            Credentials credentials = CredentialsManager.getInstance().getCredentials();
+        if (IPManager.getInstance().hasCredentials()) {
+            Credentials credentials = IPManager.getInstance().getCredentials();
             credentialsUsername.setText(credentials.username);
             credentialsPassword.setText(credentials.password);
             credentialsHostname.setText(credentials.hostname);

@@ -23,12 +23,16 @@ public class IPMJobsService extends JobService {
             @Override
             public void run() {
                 while (true) {
-                    if (CredentialsManager.getInstance().isOnline()) {
+                    if (IPManager.getInstance().isOnline()) {
                         IPManager.getInstance().recalculateServicesStatus();
                     }
 
+                    if (!IPManager.getInstance().hasServerName()) {
+                        IPManager.getInstance().restoreServerName();
+                    }
+
                     try {
-                        Thread.sleep(10000);
+                        Thread.sleep(1000 * IPManager.getInstance().getUpdateInterval());
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

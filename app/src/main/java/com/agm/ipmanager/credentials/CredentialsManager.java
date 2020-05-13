@@ -13,22 +13,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class CredentialsManager {
-    private static CredentialsManager fileManager;
     private static final String CREDENTIALS_FILE_NAME = "credentials.txt";
     private static final String SERVER_INFO_FILE_NAME = "serverinfo.txt";
     private View view;
     private Credentials credentials;
-    private String serverName;
 
-    private CredentialsManager() {}
-
-    public static CredentialsManager getInstance() {
-        if (fileManager == null) {
-            fileManager = new CredentialsManager();
-        }
-
-        return fileManager;
-    }
+    public CredentialsManager() {}
 
     public void setView(View view) {
         this.view = view;
@@ -94,7 +84,7 @@ public class CredentialsManager {
 
             this.credentials = new Credentials(c[0], c[1], c[2]);
 
-            APIConnector.getInstance().login();
+            IPManager.getInstance().login();
         }
     }
 
@@ -104,14 +94,6 @@ public class CredentialsManager {
 
     public boolean hasCredentials() {
         return this.credentials != null;
-    }
-
-    public boolean hasServerName() {
-        return this.serverName != null;
-    }
-
-    public String getServerName() {
-        return this.serverName;
     }
 
     public void saveServerName(String serverName) throws IOException {
@@ -128,11 +110,11 @@ public class CredentialsManager {
             }
         }
 
-        this.serverName = serverName;
+        IPManager.getInstance().setServerName(serverName);
     }
 
     public void restoreServerName() throws IOException {
-        if (credentials == null) {
+        if (credentials != null) {
             FileInputStream fis = null;
             String text = "";
 
@@ -157,8 +139,10 @@ public class CredentialsManager {
 
             String[] c = text.split("#");
 
+            String serverName;
+
             if (c.length == 0) {
-                serverName = null;
+                return;
             }
 
             serverName = c[0];

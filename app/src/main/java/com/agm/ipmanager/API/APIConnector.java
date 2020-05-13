@@ -2,6 +2,7 @@ package com.agm.ipmanager.API;
 
 import android.content.Context;
 
+import com.agm.ipmanager.IPManager;
 import com.agm.ipmanager.Service;
 import com.agm.ipmanager.credentials.CredentialsManager;
 import com.android.volley.Request;
@@ -17,20 +18,10 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 public class APIConnector {
-    private static APIConnector connector;
-
     private RequestQueue requestQueue;
     private Context context;
 
-    private APIConnector() {}
-
-    public static APIConnector getInstance() {
-        if (connector == null) {
-            connector = new APIConnector();
-        }
-
-        return connector;
-    }
+    public APIConnector() {}
 
     public void setContext(Context context) {
         this.context = context;
@@ -38,8 +29,8 @@ public class APIConnector {
     }
 
     public void login() {
-        if (CredentialsManager.getInstance().hasCredentials()) {
-            String url = CredentialsManager.getInstance().getCredentials().hostname + "/api/login";
+        if (IPManager.getInstance().hasCredentials()) {
+            String url = IPManager.getInstance().getCredentials().hostname + "/api/login";
 
             CustomRequest request = new CustomRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                 @Override
@@ -48,7 +39,7 @@ public class APIConnector {
                         String token = response.getString("token");
 
                         if (!token.isEmpty()) {
-                            CredentialsManager.getInstance().setToken(token);
+                            IPManager.getInstance().setToken(token);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -67,8 +58,8 @@ public class APIConnector {
 
     public HashMap<Service, Boolean> getServiceStatus() {
         final HashMap<Service, Boolean> output = new HashMap<>();
-        if (CredentialsManager.getInstance().hasCredentials()) {
-            String url = CredentialsManager.getInstance().getCredentials().hostname + "/api/status";
+        if (IPManager.getInstance().hasCredentials()) {
+            String url = IPManager.getInstance().getCredentials().hostname + "/api/status";
 
             CustomRequest request = new CustomRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                 @Override

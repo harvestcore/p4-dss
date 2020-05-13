@@ -4,6 +4,7 @@ import android.util.Base64;
 
 import androidx.annotation.Nullable;
 
+import com.agm.ipmanager.IPManager;
 import com.agm.ipmanager.credentials.Credentials;
 import com.agm.ipmanager.credentials.CredentialsManager;
 import com.android.volley.AuthFailureError;
@@ -27,10 +28,10 @@ public class CustomRequest extends JsonObjectRequest {
 
     @Override
     public Map<String, String> getHeaders() throws AuthFailureError {
-        if (CredentialsManager.getInstance().hasCredentials()) {
+        if (IPManager.getInstance().hasCredentials()) {
             HashMap<String, String> params = new HashMap<>();
 
-            Credentials credentials = CredentialsManager.getInstance().getCredentials();
+            Credentials credentials = IPManager.getInstance().getCredentials();
             String creds = String.format("%s:%s", credentials.username, credentials.password);
             String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
 
