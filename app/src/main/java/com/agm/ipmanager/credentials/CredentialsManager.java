@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
 
 public class CredentialsManager {
     private static final String CREDENTIALS_FILE_NAME = "credentials.txt";
-    private static final String SERVER_INFO_FILE_NAME = "serverinfo.txt";
+    private static final String SERVER_INFO_FILE_NAME = "server_info.txt";
     private View view;
     private Credentials credentials;
 

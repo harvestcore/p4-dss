@@ -8,6 +8,8 @@ import com.agm.ipmanager.credentials.Credentials;
 import com.agm.ipmanager.credentials.CredentialsManager;
 import com.agm.ipmanager.events.Event;
 import com.agm.ipmanager.events.EventManager;
+import com.agm.ipmanager.machines.Machine;
+import com.agm.ipmanager.machines.MachinesManager;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,14 +21,20 @@ public class IPManager {
     private int updateInterval = 30;
     private HashMap<Service, Boolean> servicesStatus;
 
+    public Notifier statusChangedNotifier;
+
     APIConnector apiConnector;
     EventManager eventManager;
     CredentialsManager credentialsManager;
+    MachinesManager machinesManager;
 
     private IPManager() {
         apiConnector = new APIConnector();
         eventManager = new EventManager();
         credentialsManager = new CredentialsManager();
+        machinesManager = new MachinesManager();
+
+        statusChangedNotifier = new Notifier();
     }
 
     public static IPManager getInstance() {
@@ -105,10 +113,6 @@ public class IPManager {
         }
     }
 
-    public void saveUpdateInterval(int updateInterval) {
-
-    }
-
     public void setView(View view) {
         credentialsManager.setView(view);
     }
@@ -123,5 +127,24 @@ public class IPManager {
 
     public ArrayList<Event> getEvents(){
         return eventManager.getEvents();
+    }
+    public void addEvent(Event e) { eventManager.addEvent(e); }
+
+    public ArrayList<Machine> getMachines() { return machinesManager.getMachines(); }
+
+    public void addMachine(Machine m) {
+        this.apiConnector.addMachine(m);
+    }
+
+    public void updateMachines() {
+        this.apiConnector.setMachines();
+    }
+
+    public void setMachines(ArrayList<Machine> machines) {
+        this.machinesManager.setMachines(machines);
+    }
+
+    public Machine getMachine(int position) {
+        return this.machinesManager.getMachine(position);
     }
 }

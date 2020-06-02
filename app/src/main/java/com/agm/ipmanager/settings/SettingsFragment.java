@@ -12,6 +12,8 @@ import android.widget.EditText;
 
 import com.agm.ipmanager.IPManager;
 import com.agm.ipmanager.R;
+import com.agm.ipmanager.events.Event;
+import com.agm.ipmanager.events.EventType;
 
 public class SettingsFragment extends Fragment {
     EditText serverNameInput;
@@ -50,6 +52,7 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 IPManager.getInstance().saveServerName(serverNameInput.getText().toString());
+                IPManager.getInstance().addEvent(new Event(EventType.SETTINGS, "Server name changed"));
             }
         });
 
@@ -60,6 +63,7 @@ public class SettingsFragment extends Fragment {
             public void onClick(View v) {
                 CredentialsDialog credentialsDialog = new CredentialsDialog();
                 credentialsDialog.show(getActivity().getSupportFragmentManager(), "Credentials");
+                IPManager.getInstance().addEvent(new Event(EventType.SETTINGS, "Credentials updated"));
             }
         });
 
@@ -82,6 +86,7 @@ public class SettingsFragment extends Fragment {
 
                 IPManager.getInstance().setUpdateInterval(value);
                 updateIntervalEditText.setText(Integer.toString(value));
+                IPManager.getInstance().addEvent(new Event(EventType.SETTINGS, "Update interval changed"));
             }
         });
 

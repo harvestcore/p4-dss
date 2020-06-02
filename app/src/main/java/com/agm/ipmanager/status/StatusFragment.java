@@ -1,7 +1,11 @@
 package com.agm.ipmanager.status;
 
+import android.content.BroadcastReceiver;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 
+import androidx.arch.core.util.Function;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +24,8 @@ import com.agm.ipmanager.Service;
 import java.util.HashMap;
 
 public class StatusFragment extends Fragment {
+    BroadcastReceiver updateReceiver;
+
     RecyclerView statusRecyclerView;
     TextView serverStatusText;
     ImageView mongoStatusImage;
@@ -71,12 +77,31 @@ public class StatusFragment extends Fragment {
             dockerStatusImage.setImageResource(R.drawable.offline);
         }
 
+        IPManager.getInstance().statusChangedNotifier.addCallback(new Function() {
+            @Override
+            public Object apply(Object input) {
+
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        StatusFragment.this.updateUI();
+                    }
+                });
+
+                return null;
+            }
+        });
+
         return root;
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        statusRecyclerView.setAdapter(new EventsAdapter(getContext(), IPManager.getInstance().getEvents()));
+    }
+
+    public void updateUI() {
         statusRecyclerView.setAdapter(new EventsAdapter(getContext(), IPManager.getInstance().getEvents()));
     }
 }

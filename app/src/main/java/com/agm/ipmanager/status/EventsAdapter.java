@@ -45,6 +45,10 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Holder> {
             holder.eventRowIcon.setImageResource(R.drawable.docker);
         } else if (event.type == EventType.MACHINE) {
             holder.eventRowIcon.setImageResource(R.drawable.machine);
+        } else if (event.type == EventType.SETTINGS) {
+            holder.eventRowIcon.setImageResource(R.drawable.settings);
+        } else if (event.type == EventType.SERVER_UPDATE) {
+            holder.eventRowIcon.setImageResource(R.drawable.refresh);
         } else {
             holder.eventRowIcon.setImageResource(R.drawable.info);
         }
