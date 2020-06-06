@@ -12,15 +12,18 @@ import android.widget.EditText;
 
 import com.agm.ipmanager.IPManager;
 import com.agm.ipmanager.R;
+import com.agm.ipmanager.credentials.Credentials;
 import com.agm.ipmanager.events.Event;
 import com.agm.ipmanager.events.EventType;
 
 public class SettingsFragment extends Fragment {
     EditText serverNameInput;
     EditText updateIntervalEditText;
-    Button setServerNameButton;
-    Button setServerCredentialsButton;
-    Button setUpdateIntervalButton;
+    Button saveSettingsButton;
+
+    EditText credentialsUsername;
+    EditText credentialsPassword;
+    EditText credentialsHostname;
 
     public SettingsFragment() {
     }
@@ -47,34 +50,25 @@ public class SettingsFragment extends Fragment {
             serverNameInput.setText(IPManager.getInstance().getServerName());
         }
 
-        setServerNameButton = root.findViewById(R.id.setServerNameButton);
-        setServerNameButton.setOnClickListener(new View.OnClickListener() {
+        saveSettingsButton = root.findViewById(R.id.saveSettingsButton);
+        saveSettingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Server name
                 IPManager.getInstance().saveServerName(serverNameInput.getText().toString());
-                IPManager.getInstance().addEvent(new Event(EventType.SETTINGS, "Server name changed"));
-            }
-        });
 
-        // Credentials dialog
-        setServerCredentialsButton = root.findViewById(R.id.setServerCredentialsButton);
-        setServerCredentialsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CredentialsDialog credentialsDialog = new CredentialsDialog();
-                credentialsDialog.show(getActivity().getSupportFragmentManager(), "Credentials");
-                IPManager.getInstance().addEvent(new Event(EventType.SETTINGS, "Credentials updated"));
-            }
-        });
+                // Credentials
+                Credentials credentials = new Credentials(
+                        credentialsHostname.getText().toString(),
+                        credentialsUsername.getText().toString(),
+                        credentialsPassword.getText().toString()
+                );
 
-        // Set interval
-        updateIntervalEditText = root.findViewById(R.id.updateIntervalEditText);
-        updateIntervalEditText.setText(Integer.toString(IPManager.getInstance().getUpdateInterval()));
+                IPManager.getInstance().saveCredentials(credentials);
+                IPManager.getInstance().login();
 
-        setUpdateIntervalButton = root.findViewById(R.id.setUpdateIntervalButton);
-        setUpdateIntervalButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+
+                // Update interval
                 int value = 30;
                 String strValue = updateIntervalEditText.getText().toString();
                 if (!strValue.isEmpty()) {
@@ -86,9 +80,25 @@ public class SettingsFragment extends Fragment {
 
                 IPManager.getInstance().setUpdateInterval(value);
                 updateIntervalEditText.setText(Integer.toString(value));
-                IPManager.getInstance().addEvent(new Event(EventType.SETTINGS, "Update interval changed"));
+
+                IPManager.getInstance().addEvent(new Event(EventType.SETTINGS, "Settings updated"));
             }
         });
+
+        // Set interval
+        updateIntervalEditText = root.findViewById(R.id.updateIntervalEditText);
+        updateIntervalEditText.setText(Integer.toString(IPManager.getInstance().getUpdateInterval()));
+
+        credentialsUsername = root.findViewById(R.id.credentialsUsername);
+        credentialsPassword = root.findViewById(R.id.credentialsPassword);
+        credentialsHostname = root.findViewById(R.id.hostnameInput);
+
+        if (IPManager.getInstance().hasCredentials()) {
+            Credentials credentials = IPManager.getInstance().getCredentials();
+            credentialsUsername.setText(credentials.username);
+            credentialsPassword.setText(credentials.password);
+            credentialsHostname.setText(credentials.hostname);
+        }
 
         return root;
     }
