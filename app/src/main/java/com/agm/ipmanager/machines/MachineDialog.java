@@ -13,12 +13,10 @@ import android.widget.Switch;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.arch.core.util.Function;
 
 import com.agm.ipmanager.IPManager;
 import com.agm.ipmanager.R;
-import com.agm.ipmanager.credentials.Credentials;
-import com.agm.ipmanager.events.Event;
-import com.agm.ipmanager.events.EventType;
 
 public class MachineDialog extends AppCompatDialogFragment {
     EditText nameInput;
@@ -28,12 +26,18 @@ public class MachineDialog extends AppCompatDialogFragment {
     Switch localSwitch;
     Switch remoteSwitch;
 
+    Function f;
+
     Machine m;
 
     MachineDialog(Machine m){
         if (m != null) {
             this.m = m;
         }
+    }
+
+    public void setOnSubmitCallback(Function f) {
+        this.f = f;
     }
 
     @NonNull
@@ -49,21 +53,50 @@ public class MachineDialog extends AppCompatDialogFragment {
         builder.setView(view).setTitle(title).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                dismiss();
             }
         })
         .setPositiveButton("Save", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String type = localSwitch.isChecked() ? "local" : "remote";
-                IPManager.getInstance().addMachine(new Machine(
-                    nameInput.getText().toString(),
-                    type,
-                    ipv4Input.getText().toString(),
-                    ipv6Input.getText().toString(),
-                    macInput.getText().toString()
-                ));
+                if (m == null) {
+                    String type = localSwitch.isChecked() ? "local" : "remote";
+                    IPManager.getInstance().addMachine(new Machine(
+                            nameInput.getText().toString(),
+                            type,
+                            ipv4Input.getText().toString(),
+                            ipv6Input.getText().toString(),
+                            macInput.getText().toString()
+                    ));
+                } else {
+                    String type = localSwitch.isChecked() ? "local" : "remote";
+                    IPManager.getInstance().updateMachine(m.name, new Machine(
+                            nameInput.getText().toString(),
+                            type,
+                            ipv4Input.getText().toString(),
+                            ipv6Input.getText().toString(),
+                            macInput.getText().toString()
+                    ));
+                }
+
+                if (f != null) {
+                    f.apply(null);
+                }
             }
         });
+
+        if (m != null) {
+            builder.setNeutralButton("Remove", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    IPManager.getInstance().removeMachine(m);
+                    if (f != null) {
+                        f.apply(null);
+                    }
+                    dismiss();
+                }
+            });
+        }
 
         nameInput = view.findViewById(R.id.nameInput);
         ipv4Input = view.findViewById(R.id.ipv4Input);

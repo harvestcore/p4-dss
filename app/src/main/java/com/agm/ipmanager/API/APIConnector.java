@@ -208,10 +208,11 @@ public class APIConnector {
 
     public void removeMachine(Machine m) {
         if (IPManager.getInstance().hasCredentials()) {
-            String url = IPManager.getInstance().getCredentials().hostname + "/api/machine";
+            String url = IPManager.getInstance().getCredentials().hostname + "/api/machine/" + m.name;
             JSONObject query = new JSONObject();
             try {
                 query.put("name", m.name);
+                System.out.println(query);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -227,6 +228,57 @@ public class APIConnector {
                             IPManager.getInstance().addEvent(new Event(EventType.MACHINE, "Machine deleted"));
                         } else {
                             IPManager.getInstance().addEvent(new Event(EventType.MACHINE, "Machine not deleted"));
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                }
+            });
+
+            requestQueue.add(request);
+        }
+    }
+
+    public void updateMachine(String name, Machine m) {
+        if (IPManager.getInstance().hasCredentials()) {
+            String url = IPManager.getInstance().getCredentials().hostname + "/api/machine";
+            JSONObject query = new JSONObject();
+            JSONObject data = new JSONObject();
+
+            try {
+                data.put("name", m.name);
+                data.put("type", m.type);
+                data.put("ipv4", m.ipv4);
+
+                if (!m.ipv6.isEmpty()) {
+                    query.put("ipv6", m.ipv6);
+                }
+                if (!m.mac.isEmpty()) {
+                    query.put("mac", m.mac);
+                }
+
+                query.put("name", name);
+                query.put("data", data);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            CustomRequest request = new CustomRequest(Request.Method.PUT, url, query, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        boolean status = response.getBoolean("ok");
+
+                        if (status) {
+                            setMachines();
+                            IPManager.getInstance().addEvent(new Event(EventType.MACHINE, "Machine updated"));
+                        } else {
+                            IPManager.getInstance().addEvent(new Event(EventType.MACHINE, "Machine not updated"));
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();

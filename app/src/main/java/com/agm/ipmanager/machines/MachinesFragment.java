@@ -1,7 +1,10 @@
 package com.agm.ipmanager.machines;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.arch.core.util.Function;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +16,9 @@ import android.widget.Button;
 
 import com.agm.ipmanager.IPManager;
 import com.agm.ipmanager.R;
+import com.agm.ipmanager.status.StatusFragment;
+
+import java.util.ArrayList;
 
 public class MachinesFragment extends Fragment {
     RecyclerView machinesRecyclerView;
@@ -37,17 +43,6 @@ public class MachinesFragment extends Fragment {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_machines, container, false);
 
-        machinesRecyclerView = root.findViewById(R.id.machinesRecyclerView);
-        machinesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        MachinesAdapter adapter = new MachinesAdapter(getContext(), IPManager.getInstance().getMachines());
-        adapter.setOnItemClickListener(new MachinesAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                clickItem(position);
-            }
-        });
-        machinesRecyclerView.setAdapter(adapter);
-
         addMachineButton = root.findViewById(R.id.addMachineButton);
         addMachineButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,9 +57,20 @@ public class MachinesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 IPManager.getInstance().updateMachines();
-                machinesRecyclerView.setAdapter(new MachinesAdapter(getContext(), IPManager.getInstance().getMachines()));
+                MachinesAdapter adapter = new MachinesAdapter(getContext(), IPManager.getInstance().getMachines());
+                adapter.setOnItemClickListener(new MachinesAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(int position) {
+                        clickItem(position);
+                    }
+                });
+                machinesRecyclerView.setAdapter(adapter);
             }
         });
+
+        machinesRecyclerView = root.findViewById(R.id.machinesRecyclerView);
+        machinesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        this.updateUI();
 
         return root;
     }
@@ -72,6 +78,30 @@ public class MachinesFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        this.updateUI();
+    }
+
+    private void clickItem(int position) {
+        Machine m = IPManager.getInstance().getMachine(position);
+        MachineDialog machineDialog = new MachineDialog(m);
+        machineDialog.setOnSubmitCallback(new Function() {
+            @Override
+            public Object apply(Object input) {
+
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                    MachinesFragment.this.updateUI();
+                    }
+                });
+
+                return null;
+            }
+        });
+        machineDialog.show(getActivity().getSupportFragmentManager(), "Machine");
+    }
+
+    public void updateUI() {
         IPManager.getInstance().updateMachines();
         MachinesAdapter adapter = new MachinesAdapter(getContext(), IPManager.getInstance().getMachines());
         adapter.setOnItemClickListener(new MachinesAdapter.OnItemClickListener() {
@@ -81,12 +111,5 @@ public class MachinesFragment extends Fragment {
             }
         });
         machinesRecyclerView.setAdapter(adapter);
-    }
-
-    private void clickItem(int position) {
-        System.out.println("POSITON" + position);
-        Machine m = IPManager.getInstance().getMachine(position);
-        MachineDialog machineDialog = new MachineDialog(m);
-        machineDialog.show(getActivity().getSupportFragmentManager(), "Machine");
     }
 }

@@ -136,6 +136,10 @@ public class IPManager {
         this.apiConnector.addMachine(m);
     }
 
+    public void updateMachine(String name, Machine m) {
+        this.apiConnector.updateMachine(name, m);
+    }
+
     public void updateMachines() {
         this.apiConnector.setMachines();
     }
@@ -147,4 +151,5 @@ public class IPManager {
     public Machine getMachine(int position) {
         return this.machinesManager.getMachine(position);
     }
+    public void removeMachine(Machine m) { this.apiConnector.removeMachine(m);}
 }
