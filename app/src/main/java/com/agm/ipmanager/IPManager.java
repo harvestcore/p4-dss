@@ -11,6 +11,8 @@ import com.agm.ipmanager.events.EventManager;
 import com.agm.ipmanager.machines.Machine;
 import com.agm.ipmanager.machines.MachinesManager;
 
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,10 +20,12 @@ import java.util.HashMap;
 public class IPManager {
     private static IPManager ipManager;
     private String serverName = "";
-    private int updateInterval = 30;
+    private int updateInterval = 15;
     private HashMap<Service, Boolean> servicesStatus;
 
     public Notifier statusChangedNotifier;
+    private JSONObject mongoStatus;
+    private JSONObject dockerStatus;
 
     APIConnector apiConnector;
     EventManager eventManager;
@@ -70,7 +74,24 @@ public class IPManager {
     }
 
     public void recalculateServicesStatus() {
-        this.servicesStatus = apiConnector.getServiceStatus();
+        apiConnector.updateServiceStatus();
+    }
+
+    public void setOnlineStatusServicesStatus(HashMap<Service, Boolean> data) {
+        this.servicesStatus = data;
+    }
+
+    public void setServicesStatus(JSONObject mongo, JSONObject docker) {
+        this.mongoStatus = mongo;
+        this.dockerStatus = docker;
+    }
+
+    public JSONObject getMongoStatus() {
+        return mongoStatus;
+    }
+
+    public JSONObject getDockerStatus() {
+        return dockerStatus;
     }
 
     public boolean hasCredentials() {

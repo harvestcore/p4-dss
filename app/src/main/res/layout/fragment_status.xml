@@ -9,10 +9,54 @@
     android:padding="24dp">
 
     <TextView
+        android:id="@+id/totalContainersStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Containers: 0"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagesStatus" />
+
+    <TextView
+        android:id="@+id/containersRunning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Running: 0"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dockerStatusText" />
+
+    <TextView
+        android:id="@+id/containersStopped"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Stopped: 0"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/containersPaused" />
+
+    <TextView
+        android:id="@+id/containersPaused"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Paused: 0"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/containersRunning" />
+
+    <TextView
         android:id="@+id/serverStatusText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Server name"
         android:textSize="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,21 +66,21 @@
         android:id="@+id/dockerStatusText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
         android:text="Docker"
         android:textSize="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mongoStatusImage" />
+        app:layout_constraintBottom_toBottomOf="@+id/mongoStatusText"
+        app:layout_constraintEnd_toStartOf="@+id/dockerStatusImage"
+        app:layout_constraintTop_toTopOf="@+id/mongoStatusText" />
 
     <TextView
         android:id="@+id/mongoStatusText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:text="MongoDB"
         android:textSize="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/serverStatusText" />
 
@@ -44,22 +88,21 @@
         android:id="@+id/mongoStatusImage"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/up"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mongoStatusText" />
+        android:layout_marginStart="16dp"
+        android:src="@drawable/offline"
+        app:layout_constraintBottom_toBottomOf="@+id/mongoStatusText"
+        app:layout_constraintStart_toEndOf="@+id/mongoStatusText"
+        app:layout_constraintTop_toTopOf="@+id/mongoStatusText" />
 
     <ImageView
         android:id="@+id/dockerStatusImage"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/up"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/offline"
+        app:layout_constraintBottom_toBottomOf="@+id/dockerStatusText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dockerStatusText" />
+        app:layout_constraintTop_toTopOf="@+id/dockerStatusText" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/eventsRecyclerView"
@@ -75,11 +118,22 @@
         android:id="@+id/lastEventsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:text="Last events"
         android:textSize="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dockerStatusImage" />
+        app:layout_constraintTop_toBottomOf="@+id/totalContainersStatus" />
+
+    <TextView
+        android:id="@+id/imagesStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Images: 0"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mongoStatusText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

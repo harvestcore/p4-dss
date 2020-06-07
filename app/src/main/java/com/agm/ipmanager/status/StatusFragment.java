@@ -17,6 +17,9 @@ import com.agm.ipmanager.IPManager;
 import com.agm.ipmanager.R;
 import com.agm.ipmanager.Service;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 
 public class StatusFragment extends Fragment {
@@ -24,6 +27,12 @@ public class StatusFragment extends Fragment {
     TextView serverStatusText;
     ImageView mongoStatusImage;
     ImageView dockerStatusImage;
+
+    TextView imagesStatus;
+    TextView totalContainersStatus;
+    TextView containersRunning;
+    TextView containersStopped;
+    TextView containersPaused;
 
     public static StatusFragment newInstance() {
         StatusFragment fragment = new StatusFragment();
@@ -57,6 +66,14 @@ public class StatusFragment extends Fragment {
         // Docker service status icon
         dockerStatusImage = root.findViewById(R.id.dockerStatusImage);
 
+        // Containers/images labels
+        imagesStatus = root.findViewById(R.id.imagesStatus);
+        totalContainersStatus = root.findViewById(R.id.totalContainersStatus);
+        containersRunning = root.findViewById(R.id.containersRunning);
+        containersStopped = root.findViewById(R.id.containersStopped);
+        containersPaused = root.findViewById(R.id.containersPaused);
+
+
         IPManager.getInstance().statusChangedNotifier.addCallback(new Function() {
             @Override
             public Object apply(Object input) {
@@ -72,8 +89,33 @@ public class StatusFragment extends Fragment {
             }
         });
 
-        this.updateUI();
+        this.syncUpdate();
         return root;
+    }
+
+    private void syncUpdate() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (IPManager.getInstance().getServicesStatus() == null) {
+                        Thread.sleep(1500);
+                    }
+
+                    IPManager.getInstance().recalculateServicesStatus();
+                    // Wait for data to be set
+                    Thread.sleep(500);
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            StatusFragment.this.updateUI();
+                        }
+                    });
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     public void updateUI() {
@@ -88,6 +130,24 @@ public class StatusFragment extends Fragment {
         } else {
             dockerStatusImage.setImageResource(R.drawable.offline);
             mongoStatusImage.setImageResource(R.drawable.offline);
+        }
+
+        // Containers/images stuff
+        JSONObject dockerdata = IPManager.getInstance().getDockerStatus();
+
+        if (dockerdata != null) {
+            try {
+                JSONObject info = dockerdata.getJSONObject("info");
+                if (info != null) {
+                    imagesStatus.setText("Images: " + info.getInt("Images"));
+                    totalContainersStatus.setText("Containers: " + info.getInt("Containers"));
+                    containersRunning.setText("Running: " + info.getInt("ContainersRunning"));
+                    containersStopped.setText("Stopped: " + info.getInt("ContainersStopped"));
+                    containersPaused.setText("Paused: " + info.getInt("ContainersPaused"));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
 
         statusRecyclerView.setAdapter(new EventsAdapter(getContext(), IPManager.getInstance().getEvents()));

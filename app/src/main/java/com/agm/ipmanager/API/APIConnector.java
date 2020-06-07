@@ -59,7 +59,7 @@ public class APIConnector {
         }
     }
 
-    public HashMap<Service, Boolean> getServiceStatus() {
+    public void updateServiceStatus() {
         final HashMap<Service, Boolean> output = new HashMap<>();
         if (IPManager.getInstance().hasCredentials()) {
             String url = IPManager.getInstance().getCredentials().hostname + "/api/status";
@@ -71,8 +71,12 @@ public class APIConnector {
                         JSONObject mongo = response.getJSONObject("mongo");
                         JSONObject docker = response.getJSONObject("docker");
 
+                        IPManager.getInstance().setServicesStatus(mongo, docker);
+
                         output.put(Service.MONGO, mongo.getBoolean("is_up"));
                         output.put(Service.DOCKER, docker.getBoolean("is_up"));
+
+                        IPManager.getInstance().setOnlineStatusServicesStatus(output);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -86,8 +90,6 @@ public class APIConnector {
 
             requestQueue.add(request);
         }
-
-        return output;
     }
 
     public void setMachines() {

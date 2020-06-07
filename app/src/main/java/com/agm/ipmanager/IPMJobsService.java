@@ -47,6 +47,7 @@ public class IPMJobsService extends JobService {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
+
                         Thread.sleep(1000 * (IPManager.getInstance().getUpdateInterval() - 1));
                         IPManager.getInstance().addEvent(new Event(EventType.SERVER_UPDATE, "Server status updated"));
                     } catch (InterruptedException e) {

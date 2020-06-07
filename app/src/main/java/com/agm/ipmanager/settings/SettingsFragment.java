@@ -69,7 +69,7 @@ public class SettingsFragment extends Fragment {
 
 
                 // Update interval
-                int value = 30;
+                int value = 15;
                 String strValue = updateIntervalEditText.getText().toString();
                 if (!strValue.isEmpty()) {
                     value = Integer.parseInt(strValue);
