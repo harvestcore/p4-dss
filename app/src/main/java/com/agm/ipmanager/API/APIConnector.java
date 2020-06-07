@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.agm.ipmanager.IPManager;
 import com.agm.ipmanager.Service;
+import com.agm.ipmanager.deploys.Container;
 import com.agm.ipmanager.events.Event;
 import com.agm.ipmanager.events.EventType;
 import com.agm.ipmanager.machines.Machine;
@@ -281,6 +282,164 @@ public class APIConnector {
                             IPManager.getInstance().addEvent(new Event(EventType.MACHINE, "Machine updated"));
                         } else {
                             IPManager.getInstance().addEvent(new Event(EventType.MACHINE, "Machine not updated"));
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                }
+            });
+
+            requestQueue.add(request);
+        }
+    }
+
+    public void updateContainers() {
+        if (IPManager.getInstance().hasCredentials()) {
+            String url = IPManager.getInstance().getCredentials().hostname + "/api/deploy/container";
+            JSONObject query = new JSONObject();
+            JSONObject data = new JSONObject();
+
+            final ArrayList<Container> output = new ArrayList<>();
+
+            try {
+                data.put("all", true);
+                query.put("data", data);
+                query.put("operation", "list");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            CustomRequest request = new CustomRequest(Request.Method.POST, url, query, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        try {
+                            String tag = "";
+                            try {
+                                tag = response.getJSONObject("image").getJSONArray("tags").getString(1);
+                            } catch (JSONException t) {}
+
+                            output.add(new Container(
+                                    response.getString("name"),
+                                    response.getString("status"),
+                                    response.getString("short_id"),
+                                    tag,
+                                    response.getString("id")
+                            ));
+                        } catch (JSONException e) {
+                            JSONArray items = response.getJSONArray("items");
+                            int total = response.getInt("total");
+
+                            for (int i = 0; i < total; ++i) {
+                                JSONObject aux = items.getJSONObject(i);
+
+                                String tag = "";
+                                try {
+                                    tag = response.getJSONObject("image").getJSONArray("tags").getString(1);
+                                } catch (JSONException t) {}
+
+                                output.add(new Container(
+                                        aux.getString("name"),
+                                        aux.getString("status"),
+                                        aux.getString("short_id"),
+                                        tag,
+                                        aux.getString("id")
+                                ));
+                            }
+                        }
+
+                        IPManager.getInstance().setContainers(output);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                }
+            });
+
+            requestQueue.add(request);
+        }
+    }
+
+    public void runContainerOperation(Container c, final String op) {
+        if (IPManager.getInstance().hasCredentials()) {
+            String url = IPManager.getInstance().getCredentials().hostname + "/api/deploy/container/single";
+            JSONObject query = new JSONObject();
+            JSONObject data = new JSONObject();
+
+            try {
+                query.put("container_id", c.uuid);
+                query.put("operation", op);
+                query.put("data", data);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            CustomRequest request = new CustomRequest(Request.Method.POST, url, query, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        boolean status = response.getBoolean("ok");
+
+                        if (status) {
+                            if (op.equals("pause")) {
+                                IPManager.getInstance().addEvent(new Event(EventType.DEPLOY, "Container paused"));
+                            } else if (op.equals("unpause")) {
+                                IPManager.getInstance().addEvent(new Event(EventType.DEPLOY, "Container unpaused"));
+                            } else if (op.equals("reload")) {
+                                IPManager.getInstance().addEvent(new Event(EventType.DEPLOY, "Container reloaded"));
+                            } else if (op.equals("restart")) {
+                                IPManager.getInstance().addEvent(new Event(EventType.DEPLOY, "Container restarted"));
+                            } else if (op.equals("kill")) {
+                                IPManager.getInstance().addEvent(new Event(EventType.DEPLOY, "Container killed"));
+                            } else if (op.equals("stop")) {
+                                IPManager.getInstance().addEvent(new Event(EventType.DEPLOY, "Container stopped"));
+                            }
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                }
+            });
+
+            requestQueue.add(request);
+        }
+    }
+
+    public void pruneContainers() {
+        if (IPManager.getInstance().hasCredentials()) {
+            String url = IPManager.getInstance().getCredentials().hostname + "/api/deploy/container";
+            JSONObject query = new JSONObject();
+            JSONObject data = new JSONObject();
+
+            try {
+                query.put("operation", "prune");
+                query.put("data", data);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            CustomRequest request = new CustomRequest(Request.Method.POST, url, query, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        boolean status = response.getBoolean("ok");
+
+                        if (status) {
+                            IPManager.getInstance().addEvent(new Event(EventType.DEPLOY, "Containers pruned"));
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();

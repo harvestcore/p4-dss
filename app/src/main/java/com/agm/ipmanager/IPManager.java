@@ -6,6 +6,8 @@ import android.view.View;
 import com.agm.ipmanager.API.APIConnector;
 import com.agm.ipmanager.credentials.Credentials;
 import com.agm.ipmanager.credentials.CredentialsManager;
+import com.agm.ipmanager.deploys.Container;
+import com.agm.ipmanager.deploys.DeploysManager;
 import com.agm.ipmanager.events.Event;
 import com.agm.ipmanager.events.EventManager;
 import com.agm.ipmanager.machines.Machine;
@@ -20,7 +22,7 @@ import java.util.HashMap;
 public class IPManager {
     private static IPManager ipManager;
     private String serverName = "";
-    private int updateInterval = 15;
+    private int updateInterval = 30;
     private HashMap<Service, Boolean> servicesStatus;
 
     public Notifier statusChangedNotifier;
@@ -31,12 +33,14 @@ public class IPManager {
     EventManager eventManager;
     CredentialsManager credentialsManager;
     MachinesManager machinesManager;
+    DeploysManager deploysManager;
 
     private IPManager() {
         apiConnector = new APIConnector();
         eventManager = new EventManager();
         credentialsManager = new CredentialsManager();
         machinesManager = new MachinesManager();
+        deploysManager = new DeploysManager();
 
         statusChangedNotifier = new Notifier();
     }
@@ -173,4 +177,24 @@ public class IPManager {
         return this.machinesManager.getMachine(position);
     }
     public void removeMachine(Machine m) { this.apiConnector.removeMachine(m);}
+
+    public void updateContainers() {
+        this.apiConnector.updateContainers();
+    }
+
+    public void setContainers(ArrayList<Container> containers) {
+        this.deploysManager.setContainers(containers);
+    }
+
+    public ArrayList<Container> getContainers() {
+        return this.deploysManager.getContainers();
+    }
+
+    public void runContainerOperation(Container c, String op) {
+        this.apiConnector.runContainerOperation(c, op);
+    }
+
+    public void pruneContainers() {
+        this.apiConnector.pruneContainers();
+    }
 }

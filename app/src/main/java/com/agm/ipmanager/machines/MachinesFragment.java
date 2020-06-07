@@ -37,8 +37,7 @@ public class MachinesFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_machines, container, false);
 
         addMachineButton = root.findViewById(R.id.addMachineButton);
