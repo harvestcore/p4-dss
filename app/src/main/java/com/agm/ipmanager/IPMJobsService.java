@@ -26,6 +26,7 @@ public class IPMJobsService extends JobService {
                 while (true) {
                     if (IPManager.getInstance().isOnline()) {
                         IPManager.getInstance().recalculateServicesStatus();
+                        IPManager.getInstance().updateMachines();
                     }
 
                     if (!IPManager.getInstance().hasServerName()) {
@@ -33,13 +34,21 @@ public class IPMJobsService extends JobService {
                     }
 
                     try {
-                        IPManager.getInstance().addEvent(new Event(EventType.SERVER_UPDATE, "Server status updated"));
+                        // Wait 1000 ms so API calls can be performed and the data can be set
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    try {
                         try {
+                            // Execute all callbacks that depend on this service
                             IPManager.getInstance().statusChangedNotifier.executeCallbacks();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
-                        Thread.sleep(1000 * IPManager.getInstance().getUpdateInterval());
+                        Thread.sleep(1000 * (IPManager.getInstance().getUpdateInterval() - 1));
+                        IPManager.getInstance().addEvent(new Event(EventType.SERVER_UPDATE, "Server status updated"));
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

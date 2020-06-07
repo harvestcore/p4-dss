@@ -57,25 +57,11 @@ public class StatusFragment extends Fragment {
         String serverName = IPManager.getInstance().getServerName();
         serverStatusText.setText(serverName.isEmpty() ? "Server status" : serverName);
 
-        // Server online?
-        HashMap<Service, Boolean> servicesStatus = IPManager.getInstance().getServicesStatus();
-        boolean isOnline = servicesStatus == null ? false : true;
-
         // Mongo service status icon
         mongoStatusImage = root.findViewById(R.id.mongoStatusImage);
-        if (isOnline) {
-            mongoStatusImage.setImageResource(servicesStatus.get(Service.MONGO) ? R.drawable.up : R.drawable.down);
-        } else {
-            mongoStatusImage.setImageResource(R.drawable.offline);
-        }
 
         // Docker service status icon
         dockerStatusImage = root.findViewById(R.id.dockerStatusImage);
-        if (isOnline) {
-            dockerStatusImage.setImageResource(servicesStatus.get(Service.DOCKER) ? R.drawable.up : R.drawable.down);
-        } else {
-            dockerStatusImage.setImageResource(R.drawable.offline);
-        }
 
         IPManager.getInstance().statusChangedNotifier.addCallback(new Function() {
             @Override
@@ -92,16 +78,24 @@ public class StatusFragment extends Fragment {
             }
         });
 
+        this.updateUI();
         return root;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        statusRecyclerView.setAdapter(new EventsAdapter(getContext(), IPManager.getInstance().getEvents()));
-    }
-
     public void updateUI() {
+        // Server online?
+        HashMap<Service, Boolean> servicesStatus = IPManager.getInstance().getServicesStatus();
+        boolean isOnline = (servicesStatus == null || servicesStatus.size() == 0) ? false : true;
+
+
+        if (isOnline) {
+            dockerStatusImage.setImageResource(servicesStatus.get(Service.DOCKER) ? R.drawable.up : R.drawable.down);
+            mongoStatusImage.setImageResource(servicesStatus.get(Service.MONGO) ? R.drawable.up : R.drawable.down);
+        } else {
+            dockerStatusImage.setImageResource(R.drawable.offline);
+            mongoStatusImage.setImageResource(R.drawable.offline);
+        }
+
         statusRecyclerView.setAdapter(new EventsAdapter(getContext(), IPManager.getInstance().getEvents()));
     }
 }

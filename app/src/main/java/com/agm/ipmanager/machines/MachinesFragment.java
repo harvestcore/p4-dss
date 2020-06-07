@@ -1,9 +1,6 @@
 package com.agm.ipmanager.machines;
 
-import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
 import androidx.arch.core.util.Function;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.agm.ipmanager.IPManager;
 import com.agm.ipmanager.R;
@@ -24,6 +22,7 @@ public class MachinesFragment extends Fragment {
     RecyclerView machinesRecyclerView;
     Button addMachineButton;
     Button refreshMachinesButton;
+    TextView machinesInfo;
 
     public MachinesFragment() {
     }
@@ -56,29 +55,32 @@ public class MachinesFragment extends Fragment {
         refreshMachinesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                IPManager.getInstance().updateMachines();
-                MachinesAdapter adapter = new MachinesAdapter(getContext(), IPManager.getInstance().getMachines());
-                adapter.setOnItemClickListener(new MachinesAdapter.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(int position) {
-                        clickItem(position);
-                    }
-                });
-                machinesRecyclerView.setAdapter(adapter);
+                updateUI();
             }
         });
 
+        machinesInfo = root.findViewById(R.id.machinesInfo);
+
         machinesRecyclerView = root.findViewById(R.id.machinesRecyclerView);
         machinesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        this.updateUI();
 
+        IPManager.getInstance().statusChangedNotifier.addCallback(new Function() {
+            @Override
+            public Object apply(Object input) {
+
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        MachinesFragment.this.updateUI();
+                    }
+                });
+
+                return null;
+            }
+        });
+
+        this.updateUI();
         return root;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        this.updateUI();
     }
 
     private void clickItem(int position) {
@@ -103,7 +105,8 @@ public class MachinesFragment extends Fragment {
 
     public void updateUI() {
         IPManager.getInstance().updateMachines();
-        MachinesAdapter adapter = new MachinesAdapter(getContext(), IPManager.getInstance().getMachines());
+        ArrayList<Machine> machines = IPManager.getInstance().getMachines();
+        MachinesAdapter adapter = new MachinesAdapter(getContext(), machines);
         adapter.setOnItemClickListener(new MachinesAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
@@ -111,5 +114,14 @@ public class MachinesFragment extends Fragment {
             }
         });
         machinesRecyclerView.setAdapter(adapter);
+
+        if (machines.get(0).name.contains("There are no")) {
+            machinesInfo.setText("0 machines");
+        } else if (machines.size() == 1) {
+            machinesInfo.setText("1 machine");
+        } else {
+            machinesInfo.setText(machines.size() + " machines");
+        }
+
     }
 }
