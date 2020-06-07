@@ -1,8 +1,5 @@
 package com.agm.ipmanager.status;
 
-import android.content.BroadcastReceiver;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 
 import androidx.arch.core.util.Function;
@@ -16,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.agm.ipmanager.events.EventManager;
 import com.agm.ipmanager.IPManager;
 import com.agm.ipmanager.R;
 import com.agm.ipmanager.Service;
@@ -24,8 +20,6 @@ import com.agm.ipmanager.Service;
 import java.util.HashMap;
 
 public class StatusFragment extends Fragment {
-    BroadcastReceiver updateReceiver;
-
     RecyclerView statusRecyclerView;
     TextView serverStatusText;
     ImageView mongoStatusImage;

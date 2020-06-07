@@ -3,12 +3,8 @@ package com.agm.ipmanager;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
-import android.net.Credentials;
 import android.os.Bundle;
-import android.view.View;
 
-import com.agm.ipmanager.API.APIConnector;
-import com.agm.ipmanager.credentials.CredentialsManager;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.viewpager.widget.ViewPager;

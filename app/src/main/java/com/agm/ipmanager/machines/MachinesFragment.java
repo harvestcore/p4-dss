@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import com.agm.ipmanager.IPManager;
 import com.agm.ipmanager.R;
-import com.agm.ipmanager.status.StatusFragment;
 
 import java.util.ArrayList;
 
@@ -48,6 +47,20 @@ public class MachinesFragment extends Fragment {
             public void onClick(View v) {
                 MachineDialog machineDialog = new MachineDialog(null);
                 machineDialog.show(getActivity().getSupportFragmentManager(), "Machine");
+                machineDialog.setOnSubmitCallback(new Function() {
+                    @Override
+                    public Object apply(Object input) {
+
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                MachinesFragment.this.syncUpdate();
+                            }
+                        });
+
+                        return null;
+                    }
+                });
             }
         });
 
@@ -55,7 +68,7 @@ public class MachinesFragment extends Fragment {
         refreshMachinesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateUI();
+                syncUpdate();
             }
         });
 
@@ -79,8 +92,28 @@ public class MachinesFragment extends Fragment {
             }
         });
 
-        this.updateUI();
+        this.syncUpdate();
         return root;
+    }
+
+    private void syncUpdate() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    IPManager.getInstance().updateMachines();
+                    Thread.sleep(350);
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            MachinesFragment.this.updateUI();
+                        }
+                    });
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     private void clickItem(int position) {
@@ -93,7 +126,7 @@ public class MachinesFragment extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                    MachinesFragment.this.updateUI();
+                    MachinesFragment.this.syncUpdate();
                     }
                 });
 
@@ -104,7 +137,6 @@ public class MachinesFragment extends Fragment {
     }
 
     public void updateUI() {
-        IPManager.getInstance().updateMachines();
         ArrayList<Machine> machines = IPManager.getInstance().getMachines();
         MachinesAdapter adapter = new MachinesAdapter(getContext(), machines);
         adapter.setOnItemClickListener(new MachinesAdapter.OnItemClickListener() {
