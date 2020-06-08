@@ -49,7 +49,20 @@ public class DeploysFragment extends Fragment {
         runContainerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ImagesDialog imagesDialog = new ImagesDialog();
+                imagesDialog.show(getActivity().getSupportFragmentManager(), "Images");
+                imagesDialog.setOnSubmitCallback(new Function() {
+                    @Override
+                    public Object apply(Object input) {
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                DeploysFragment.this.syncUpdate();
+                            }
+                        });
+                        return null;
+                    }
+                });
             }
         });
 
@@ -93,6 +106,7 @@ public class DeploysFragment extends Fragment {
             public void run() {
                 try {
                     IPManager.getInstance().updateContainers();
+                    IPManager.getInstance().updateImages();
                     Thread.sleep(350);
                     getActivity().runOnUiThread(new Runnable() {
                         @Override

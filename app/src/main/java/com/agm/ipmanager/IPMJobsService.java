@@ -28,6 +28,7 @@ public class IPMJobsService extends JobService {
                         IPManager.getInstance().recalculateServicesStatus();
                         IPManager.getInstance().updateMachines();
                         IPManager.getInstance().updateContainers();
+                        IPManager.getInstance().updateImages();
                     }
 
                     if (!IPManager.getInstance().hasServerName()) {

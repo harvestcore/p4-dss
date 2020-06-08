@@ -8,6 +8,7 @@ import com.agm.ipmanager.credentials.Credentials;
 import com.agm.ipmanager.credentials.CredentialsManager;
 import com.agm.ipmanager.deploys.Container;
 import com.agm.ipmanager.deploys.DeploysManager;
+import com.agm.ipmanager.deploys.Image;
 import com.agm.ipmanager.events.Event;
 import com.agm.ipmanager.events.EventManager;
 import com.agm.ipmanager.machines.Machine;
@@ -196,5 +197,21 @@ public class IPManager {
 
     public void pruneContainers() {
         this.apiConnector.pruneContainers();
+    }
+
+    public void setImages(ArrayList<Image> images) {
+        this.deploysManager.setImages(images);
+    }
+
+    public ArrayList<Image> getImages() {
+        return this.deploysManager.getImages();
+    }
+
+    public void updateImages() {
+        this.apiConnector.updateImages();
+    }
+
+    public void runImage(Image image) {
+        this.apiConnector.runImage(image);
     }
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import com.agm.ipmanager.IPManager;
 import com.agm.ipmanager.Service;
 import com.agm.ipmanager.deploys.Container;
+import com.agm.ipmanager.deploys.Image;
 import com.agm.ipmanager.events.Event;
 import com.agm.ipmanager.events.EventType;
 import com.agm.ipmanager.machines.Machine;
@@ -440,6 +441,99 @@ public class APIConnector {
 
                         if (status) {
                             IPManager.getInstance().addEvent(new Event(EventType.DEPLOY, "Containers pruned"));
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                }
+            });
+
+            requestQueue.add(request);
+        }
+    }
+
+    public void updateImages() {
+        if (IPManager.getInstance().hasCredentials()) {
+            String url = IPManager.getInstance().getCredentials().hostname + "/api/deploy/image";
+            JSONObject query = new JSONObject();
+            JSONObject data = new JSONObject();
+
+            final ArrayList<Image> output = new ArrayList<>();
+
+            try {
+                query.put("data", data);
+                query.put("operation", "list");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            CustomRequest request = new CustomRequest(Request.Method.POST, url, query, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        try {
+                            output.add(new Image(
+                                    response.getString("short_id"),
+                                    response.getJSONArray("tags").getString(0),
+                                    response.getString("id")
+                            ));
+                        } catch (JSONException e) {
+                            JSONArray items = response.getJSONArray("items");
+                            int total = response.getInt("total");
+
+                            for (int i = 0; i < total; ++i) {
+                                JSONObject aux = items.getJSONObject(i);
+                                output.add(new Image(
+                                        aux.getString("short_id"),
+                                        aux.getJSONArray("tags").getString(0),
+                                        aux.getString("id")
+                                ));
+                            }
+                        }
+
+                        IPManager.getInstance().setImages(output);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                }
+            });
+
+            requestQueue.add(request);
+        }
+    }
+
+    public void runImage(Image image) {
+        if (IPManager.getInstance().hasCredentials()) {
+            String url = IPManager.getInstance().getCredentials().hostname + "/api/deploy/container";
+            JSONObject query = new JSONObject();
+            JSONObject data = new JSONObject();
+
+            try {
+                data.put("image", image.uuid);
+                query.put("operation", "run");
+                query.put("data", data);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            CustomRequest request = new CustomRequest(Request.Method.POST, url, query, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        boolean status = response.getBoolean("ok");
+
+                        if (status) {
+                            IPManager.getInstance().addEvent(new Event(EventType.DEPLOY, "Image running"));
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();

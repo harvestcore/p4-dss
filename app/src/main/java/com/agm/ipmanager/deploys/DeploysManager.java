@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class DeploysManager {
     ArrayList<Container> containers;
+    ArrayList<Image> images;
 
     public DeploysManager() {
         containers = new ArrayList<>();
@@ -16,5 +17,13 @@ public class DeploysManager {
 
     public void setContainers(ArrayList<Container> containers) {
         this.containers = new ArrayList<>(containers);
+    }
+
+    public ArrayList<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(ArrayList<Image> images) {
+        this.images = images;
     }
 }
