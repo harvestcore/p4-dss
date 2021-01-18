@@ -1,18 +1,20 @@
 package com.dss.p4dss.productos;
 
 public class Producto {
-    public String id;
-    public String tag;
-    public String uuid;
+    public int id;
+    public String name;
+    public String family;
+    public double price;
 
-    public Producto(String id, String tag, String uuid) {
+    public Producto(int id, String name, String family, double price) {
         this.id = id;
-        this.tag = tag;
-        this.uuid = uuid;
+        this.name = name;
+        this.family = family;
+        this.price = price;
     }
 
     @Override
     public String toString() {
-        return this.tag;
+        return this.name;
     }
 }

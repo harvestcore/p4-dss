@@ -1,18 +1,17 @@
 package com.dss.p4dss.credentials;
 
 public class Credentials {
-    public String hostname;
+    public int id;
+    public String name;
     public String username;
     public String password;
-    public String token = "";
+    public boolean admin;
 
-    public Credentials(String hostname, String username, String password) {
-        this.hostname = hostname;
+    public Credentials(int id, String name, String username, String password, boolean admin) {
+        this.id = id;
+        this.name = name;
         this.username = username;
         this.password = password;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
+        this.admin = admin;
     }
 }

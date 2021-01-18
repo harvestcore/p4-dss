@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize managers
         TiendaManager.getInstance().setContext(getBaseContext());
+        TiendaManager.getInstance().fetchProductos();
 
 //        TiendaManager.getInstance().setView(findViewById(android.R.id.content).getRootView());
     }
