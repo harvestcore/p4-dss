@@ -1,10 +1,6 @@
 <resources>
-    <string name="app_name">IPManager</string>
-    <string name="tab_0">Status</string>
-    <string name="tab_1">Deploys</string>
-    <string name="tab_2">Machines</string>
-    <string name="tab_3">Settings</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">P4DSS</string>
+    <string name="tab_1">Productos</string>
+    <string name="tab_2">Carrito</string>
+    <string name="tab_3">Login</string>
 </resources>

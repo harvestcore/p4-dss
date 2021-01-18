@@ -1,15 +1,15 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:2:1-32:12
-INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:2:1-32:12
-INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:2:1-32:12
-INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:2:1-32:12
+ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:2:1-30:12
 MERGED from [com.google.android.material:material:1.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/ae67d481176994a76afa6f312b4e8a78/material-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/ef8a364a6a39421e69c96cf68eeb3e63/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/angel/.gradle/caches/transforms-2/files-2.1/380cbbd0623e9b22e21961fc6ec82b14/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/2410219d3d267c6df4fd83668dc7fdb7/lifecycle-extensions-2.2.0/AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/7e27c7d396810af644fcc2d5ec8384aa/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.volley:volley:1.1.1] /home/angel/.gradle/caches/transforms-2/files-2.1/8db36d73dfc13079820eb18c4edebaf7/jetified-volley-1.1.1/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.volley:volley:1.1.1] /home/angel/.gradle/caches/transforms-2/files-2.1/3991b457012b1c93dc20deb03be08558/jetified-volley-1.1.1/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a627ba2b0fb7cab1458068884dcfd7e5/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/e40a377249758d23414d21222f000040/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/369c371dbc36cd3420e0891af4dc30b8/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -46,43 +46,43 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] /home/angel/.gradle/cache
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/ba74e7a1df14494ca70ea72adf4fc3bf/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/5d6ed104b1267309eec087762b08ed9e/print-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/30612fa1f33fcbb3e456c3a5f852366f/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
-INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:2:1-32:12
-INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:2:1-32:12
-INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:2:1-32:12
+INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:2:1-30:12
+INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:2:1-30:12
 	package
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:4:5-32
-		INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml
-		INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:4:5-28
+		INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml
+		INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:2:1-32:12
-		INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml
+		INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:2:1-30:12
+		INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml
 	xmlns:tools
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:3:5-51
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:2:1-32:12
-		INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml
+		INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:2:1-30:12
+		INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:2:11-69
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:6:5-67
+ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:6:5-67
 	android:name
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:6:22-64
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:6:22-64
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:7:5-81
+ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:7:5-81
 	android:name
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:7:22-78
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:7:22-78
 application
-ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:9:5-30:19
+ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:9:5-28:19
 MERGED from [com.google.android.material:material:1.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/ae67d481176994a76afa6f312b4e8a78/material-1.1.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/ae67d481176994a76afa6f312b4e8a78/material-1.1.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/angel/.gradle/caches/transforms-2/files-2.1/380cbbd0623e9b22e21961fc6ec82b14/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/angel/.gradle/caches/transforms-2/files-2.1/380cbbd0623e9b22e21961fc6ec82b14/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/2410219d3d267c6df4fd83668dc7fdb7/lifecycle-extensions-2.2.0/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/2410219d3d267c6df4fd83668dc7fdb7/lifecycle-extensions-2.2.0/AndroidManifest.xml:24:5-25:19
-MERGED from [com.android.volley:volley:1.1.1] /home/angel/.gradle/caches/transforms-2/files-2.1/8db36d73dfc13079820eb18c4edebaf7/jetified-volley-1.1.1/AndroidManifest.xml:9:5-20
-MERGED from [com.android.volley:volley:1.1.1] /home/angel/.gradle/caches/transforms-2/files-2.1/8db36d73dfc13079820eb18c4edebaf7/jetified-volley-1.1.1/AndroidManifest.xml:9:5-20
+MERGED from [com.android.volley:volley:1.1.1] /home/angel/.gradle/caches/transforms-2/files-2.1/3991b457012b1c93dc20deb03be08558/jetified-volley-1.1.1/AndroidManifest.xml:9:5-20
+MERGED from [com.android.volley:volley:1.1.1] /home/angel/.gradle/caches/transforms-2/files-2.1/3991b457012b1c93dc20deb03be08558/jetified-volley-1.1.1/AndroidManifest.xml:9:5-20
 MERGED from [androidx.core:core:1.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/34b4ab0d8b65ac74ddd00d45b26dd963/core-1.1.0/AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/34b4ab0d8b65ac74ddd00d45b26dd963/core-1.1.0/AndroidManifest.xml:24:5-89
 MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a7777210eeae7ec0839470505116d148/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:24:5-30:19
@@ -92,49 +92,43 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/angel
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/34b4ab0d8b65ac74ddd00d45b26dd963/core-1.1.0/AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:14:9-35
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:14:9-35
 	android:label
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:12:9-41
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:12:9-41
 	android:roundIcon
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:13:9-54
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:13:9-54
 	android:icon
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:11:9-43
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:11:9-43
 	android:allowBackup
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:10:9-35
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:10:9-35
 	android:theme
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:15:9-40
-activity#com.agm.ipmanager.MainActivity
-ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:16:9-27:20
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:15:9-40
+activity#com.dss.p4dss.MainActivity
+ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:16:9-27:20
 	android:screenOrientation
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:19:13-49
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:19:13-49
 	android:label
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:18:13-45
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:18:13-45
 	tools:ignore
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:21:13-53
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:21:13-53
 	android:theme
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:20:13-56
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:20:13-56
 	android:name
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:17:13-41
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:17:13-54
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:22:13-26:29
+ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:22:13-26:29
 action#android.intent.action.MAIN
-ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:23:17-69
+ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:23:17-69
 	android:name
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:23:25-66
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:23:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:25:17-77
+ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:25:17-77
 	android:name
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:25:27-74
-service#com.agm.ipmanager.IPMJobsService
-ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:28:9-29:72
-	android:permission
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:29:13-69
-	android:name
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml:28:18-48
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:25:27-74
 uses-sdk
-INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml
-INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml
+INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml
+INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml
 MERGED from [com.google.android.material:material:1.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/ae67d481176994a76afa6f312b4e8a78/material-1.1.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/ae67d481176994a76afa6f312b4e8a78/material-1.1.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/ef8a364a6a39421e69c96cf68eeb3e63/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
@@ -145,8 +139,8 @@ MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /home/angel/.gradle/
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/2410219d3d267c6df4fd83668dc7fdb7/lifecycle-extensions-2.2.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/7e27c7d396810af644fcc2d5ec8384aa/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/7e27c7d396810af644fcc2d5ec8384aa/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [com.android.volley:volley:1.1.1] /home/angel/.gradle/caches/transforms-2/files-2.1/8db36d73dfc13079820eb18c4edebaf7/jetified-volley-1.1.1/AndroidManifest.xml:7:5-43
-MERGED from [com.android.volley:volley:1.1.1] /home/angel/.gradle/caches/transforms-2/files-2.1/8db36d73dfc13079820eb18c4edebaf7/jetified-volley-1.1.1/AndroidManifest.xml:7:5-43
+MERGED from [com.android.volley:volley:1.1.1] /home/angel/.gradle/caches/transforms-2/files-2.1/3991b457012b1c93dc20deb03be08558/jetified-volley-1.1.1/AndroidManifest.xml:7:5-43
+MERGED from [com.android.volley:volley:1.1.1] /home/angel/.gradle/caches/transforms-2/files-2.1/3991b457012b1c93dc20deb03be08558/jetified-volley-1.1.1/AndroidManifest.xml:7:5-43
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a627ba2b0fb7cab1458068884dcfd7e5/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a627ba2b0fb7cab1458068884dcfd7e5/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/e40a377249758d23414d21222f000040/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
@@ -219,16 +213,16 @@ MERGED from [androidx.print:print:1.0.0] /home/angel/.gradle/caches/transforms-2
 MERGED from [androidx.print:print:1.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/5d6ed104b1267309eec087762b08ed9e/print-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/30612fa1f33fcbb3e456c3a5f852366f/interpolator-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/30612fa1f33fcbb3e456c3a5f852366f/interpolator-1.0.0/AndroidManifest.xml:20:5-44
-INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml
-INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml
+INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml
+INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml
-		INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml
+		INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml
+		INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml
-		ADDED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml
-		INJECTED from /home/angel/Dropbox/Universidad/4-Cuarto/Segundo Cuatri/PDM/IPManager/app/src/main/AndroidManifest.xml
+		INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml
+		ADDED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml
+		INJECTED from /home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml
 provider#androidx.lifecycle.ProcessLifecycleOwnerInitializer
 ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a7777210eeae7ec0839470505116d148/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
 	android:authorities

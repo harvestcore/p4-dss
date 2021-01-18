@@ -89,7 +89,6 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="16dp"
-        android:src="@drawable/offline"
         app:layout_constraintBottom_toBottomOf="@+id/mongoStatusText"
         app:layout_constraintStart_toEndOf="@+id/mongoStatusText"
         app:layout_constraintTop_toTopOf="@+id/mongoStatusText" />
@@ -99,7 +98,6 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginEnd="16dp"
-        android:src="@drawable/offline"
         app:layout_constraintBottom_toBottomOf="@+id/dockerStatusText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/dockerStatusText" />

@@ -1,0 +1,72 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.dss.p4dss"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:6:5-67
+11-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:6:22-64
+12    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+12-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:7:5-81
+12-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:7:22-78
+13
+14    <application
+14-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:9:5-28:19
+15        android:allowBackup="true"
+15-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:10:9-35
+16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+16-->[androidx.core:core:1.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/34b4ab0d8b65ac74ddd00d45b26dd963/core-1.1.0/AndroidManifest.xml:24:18-86
+17        android:debuggable="true"
+18        android:icon="@mipmap/ic_launcher"
+18-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:11:9-43
+19        android:label="@string/app_name"
+19-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:12:9-41
+20        android:roundIcon="@mipmap/ic_launcher_round"
+20-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:13:9-54
+21        android:supportsRtl="true"
+21-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:14:9-35
+22        android:testOnly="true"
+23        android:theme="@style/AppTheme" >
+23-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:15:9-40
+24        <activity
+24-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:16:9-27:20
+25            android:name="com.dss.p4dss.MainActivity"
+25-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:17:13-54
+26            android:label="@string/app_name"
+26-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:18:13-45
+27            android:screenOrientation="portrait"
+27-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:19:13-49
+28            android:theme="@style/AppTheme.NoActionBar" >
+28-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:20:13-56
+29            <intent-filter>
+29-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:22:13-26:29
+30                <action android:name="android.intent.action.MAIN" />
+30-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:23:17-69
+30-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:23:25-66
+31
+32                <category android:name="android.intent.category.LAUNCHER" />
+32-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:25:17-77
+32-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:25:27-74
+33            </intent-filter>
+34        </activity>
+35
+36        <provider
+36-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a7777210eeae7ec0839470505116d148/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+37            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+37-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a7777210eeae7ec0839470505116d148/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+38            android:authorities="com.dss.p4dss.lifecycle-process"
+38-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a7777210eeae7ec0839470505116d148/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+39            android:exported="false"
+39-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a7777210eeae7ec0839470505116d148/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+40            android:multiprocess="true" />
+40-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a7777210eeae7ec0839470505116d148/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+41    </application>
+42
+43</manifest>

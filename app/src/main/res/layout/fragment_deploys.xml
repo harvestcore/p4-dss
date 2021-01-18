@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cream"
-    tools:context=".deploys.DeploysFragment"
+    tools:context=".productos.ProductosFragment"
     android:padding="24dp">
 
     <Button
