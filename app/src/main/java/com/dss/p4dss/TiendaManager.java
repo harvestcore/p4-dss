@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class TiendaManager {
     private static TiendaManager tiendaManager;
-    private static String baseURL = "http://192.168.1.110:8080/Practica2AGM/api";
+    private static String baseURL = "http://192.168.1.110:8080/GomezMartinAngel/api";
 
     APIConnector apiConnector;
     Credentials credentials;
@@ -26,6 +26,7 @@ public class TiendaManager {
         apiConnector = new APIConnector();
 
         productos = new ArrayList<>();
+        carrito = new ArrayList<>();
     }
 
     public static TiendaManager getInstance() {
@@ -48,11 +49,35 @@ public class TiendaManager {
 
     public void fetchProductos() { this.apiConnector.getProductos(); }
 
+    public void fetchCarrito() { this.apiConnector.getCarrito(); }
+
     public Credentials getCredentials() { return credentials; }
 
     public void setCredentials(Credentials credentials) { this.credentials = credentials; }
 
     public ArrayList<Producto> getCarrito () { return this.carrito; }
 
-    public void agregarProductoACarrito(Producto p) { this.apiConnector.agregarProductoACarrito(p); }
+    public void setCarrito (ArrayList<Producto> carrito) { this.carrito = carrito; }
+
+    public void agregarProductoACarrito(Producto p) {
+        this.apiConnector.agregarProductoACarrito(p);
+        this.getCarrito().add(p);
+    }
+
+    public void borrarProductoDeCarrito(Producto p) {
+        this.apiConnector.borrarProductoDeCarrito(p);
+        this.getCarrito().remove(p);
+    }
+
+    public void login(String username, String password) {
+        this.apiConnector.login(username, password);
+    }
+
+    public void agregarProducto(Producto p) {
+        this.apiConnector.addProducto(p);
+    }
+
+    public void agregarUsuario(Credentials c) {
+        this.apiConnector.addUsuario(c);
+    }
 }

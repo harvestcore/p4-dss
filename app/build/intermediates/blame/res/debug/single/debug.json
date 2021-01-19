@@ -4,6 +4,10 @@
         "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/mipmap-hdpi/ic_launcher.png"
     },
     {
+        "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/layout_product_dialog.xml.flat",
+        "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/layout/product_dialog.xml"
+    },
+    {
         "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
@@ -20,20 +24,24 @@
         "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
+        "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/layout_fragment_carrito.xml.flat",
+        "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/layout/fragment_carrito.xml"
+    },
+    {
         "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/layout_fragment_event_row.xml.flat",
-        "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/layout/fragment_event_row.xml"
-    },
-    {
-        "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/layout_fragment_deploys.xml.flat",
-        "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/layout/fragment_deploys.xml"
+        "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/layout_user_dialog.xml.flat",
+        "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/layout/user_dialog.xml"
     },
     {
         "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
         "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/layout_fragment_carrito_row.xml.flat",
+        "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/layout/fragment_carrito_row.xml"
     },
     {
         "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
@@ -42,10 +50,6 @@
     {
         "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
         "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
-    },
-    {
-        "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/layout_fragment_machines.xml.flat",
-        "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/layout/fragment_machines.xml"
     },
     {
         "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_foreground.png.flat",
@@ -68,18 +72,6 @@
         "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/layout_container_dialog.xml.flat",
-        "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/layout/container_dialog.xml"
-    },
-    {
-        "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/layout_fragment_status.xml.flat",
-        "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/layout/fragment_status.xml"
-    },
-    {
-        "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/layout_fragment_machine_row.xml.flat",
-        "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/layout/fragment_machine_row.xml"
-    },
-    {
         "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
         "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/mipmap-mdpi/ic_launcher.png"
     },
@@ -88,24 +80,24 @@
         "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png"
     },
     {
-        "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/layout_machines_dialog.xml.flat",
-        "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/layout/machines_dialog.xml"
-    },
-    {
         "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
         "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/layout_fragment_producto_row.xml.flat",
+        "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/layout/fragment_producto_row.xml"
     },
     {
         "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
         "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/layout/activity_main.xml"
     },
     {
-        "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/layout_images_dialog.xml.flat",
-        "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/layout/images_dialog.xml"
-    },
-    {
         "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
         "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/layout_fragment_productos.xml.flat",
+        "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/layout/fragment_productos.xml"
     },
     {
         "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/mipmap-mdpi_laptop.png.flat",
@@ -114,10 +106,6 @@
     {
         "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
         "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
-    },
-    {
-        "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/layout_fragment_container_row.xml.flat",
-        "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/layout/fragment_container_row.xml"
     },
     {
         "merged": "/home/angel/Escritorio/p4-dss/app/build/intermediates/res/merged/debug/layout_fragment_main.xml.flat",

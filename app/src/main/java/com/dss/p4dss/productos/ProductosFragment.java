@@ -3,19 +3,21 @@ package com.dss.p4dss.productos;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.dss.p4dss.R;
+import com.dss.p4dss.TiendaManager;
+
+import java.util.ArrayList;
 
 
 public class ProductosFragment extends Fragment {
-//    RecyclerView deploysRecyclerView;
-//    Button runContainerButton;
-//    Button refreshContainerButton;
-//    Button pruneContainerButton;
+    RecyclerView productosRecyclerView;
 
     public ProductosFragment() {
     }
@@ -32,116 +34,28 @@ public class ProductosFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_deploys, container, false);
+        View root = inflater.inflate(R.layout.fragment_productos, container, false);
 
-//        deploysRecyclerView = root.findViewById(R.id.deploysRecyclerView);
-//        deploysRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//
-//        runContainerButton = root.findViewById(R.id.runContainerButton);
-//        runContainerButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                ImagesDialog imagesDialog = new ImagesDialog();
-//                imagesDialog.show(getActivity().getSupportFragmentManager(), "Images");
-//                imagesDialog.setOnSubmitCallback(new Function() {
-//                    @Override
-//                    public Object apply(Object input) {
-//                        getActivity().runOnUiThread(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                ProductosFragment.this.syncUpdate();
-//                            }
-//                        });
-//                        return null;
-//                    }
-//                });
-//            }
-//        });
-//
-//        refreshContainerButton = root.findViewById(R.id.refreshContainerButton);
-//        refreshContainerButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                syncUpdate();
-//            }
-//        });
-//
-//        pruneContainerButton = root.findViewById(R.id.pruneContainerButton);
-//        pruneContainerButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                TiendaManager.getInstance().pruneContainers();
-//                syncUpdate();
-//            }
-//        });
-//
-//        TiendaManager.getInstance().statusChangedNotifier.addCallback(new Function() {
-//            @Override
-//            public Object apply(Object input) {
-//                getActivity().runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        ProductosFragment.this.updateUI();
-//                    }
-//                });
-//                return null;
-//            }
-//        });
-//
-//        this.syncUpdate();
+        productosRecyclerView = root.findViewById(R.id.productosRecyclerView);
+        productosRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        TiendaManager.getInstance().fetchProductos();
+
+        updateUI();
         return root;
     }
 
-//    private void syncUpdate() {
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    TiendaManager.getInstance().updateContainers();
-//                    TiendaManager.getInstance().updateImages();
-//                    Thread.sleep(350);
-//                    getActivity().runOnUiThread(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            ProductosFragment.this.updateUI();
-//                        }
-//                    });
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }).start();
-//    }
-//
-//    private void clickItem(int position) {
-//        Container c = TiendaManager.getInstance().getContainers().get(position);
-//        ContainerDialog containerDialog = new ContainerDialog(c);
-//        containerDialog.show(getActivity().getSupportFragmentManager(), "Container");
-//        containerDialog.setOnSubmitCallback(new Function() {
-//            @Override
-//            public Object apply(Object input) {
-//                getActivity().runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        ProductosFragment.this.syncUpdate();
-//                    }
-//                });
-//                return null;
-//            }
-//        });
-//
-//    }
-//
-//    public void updateUI() {
-//        ArrayList<Container> containers = TiendaManager.getInstance().getContainers();
-//        ProductosAdapter adapter = new ProductosAdapter(getContext(), containers);
-//        adapter.setOnItemClickListener(new ProductosAdapter.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(int position) {
-//                clickItem(position);
-//            }
-//        });
-//
-//        deploysRecyclerView.setAdapter(adapter);
-//    }
+    public void updateUI() {
+        ArrayList<Producto> productos = TiendaManager.getInstance().getProductos();
+        ProductosAdapter adapter = new ProductosAdapter(getContext(), productos);
+        adapter.setOnItemClickListener(new ProductosAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                ArrayList<Producto> productos = TiendaManager.getInstance().getProductos();
+                TiendaManager.getInstance().agregarProductoACarrito(productos.get(position));
+            }
+        });
+
+        productosRecyclerView.setAdapter(adapter);
+    }
 }

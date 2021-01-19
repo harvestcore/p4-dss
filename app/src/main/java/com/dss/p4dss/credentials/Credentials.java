@@ -14,4 +14,11 @@ public class Credentials {
         this.password = password;
         this.admin = admin;
     }
+
+    public Credentials(String name, String username, String password, boolean admin) {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.admin = admin;
+    }
 }

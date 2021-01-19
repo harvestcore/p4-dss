@@ -13,8 +13,14 @@ public class Producto {
         this.price = price;
     }
 
+    public Producto(String name, String family, double price) {
+        this.name = name;
+        this.family = family;
+        this.price = price;
+    }
+
     @Override
     public String toString() {
-        return this.name;
+        return "[" + this.family + "] " + this.name + " (" + this.price + " €)";
     }
 }

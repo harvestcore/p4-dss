@@ -3,18 +3,21 @@ package com.dss.p4dss.carrito;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.dss.p4dss.R;
+import com.dss.p4dss.TiendaManager;
+import com.dss.p4dss.productos.Producto;
+
+import java.util.ArrayList;
 
 public class CarritoFragment extends Fragment {
-//    RecyclerView machinesRecyclerView;
-//    Button addMachineButton;
-//    Button refreshMachinesButton;
-//    TextView machinesInfo;
+    RecyclerView carritoRecyclerView;
 
     public CarritoFragment() {
     }
@@ -31,60 +34,28 @@ public class CarritoFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_machines, container, false);
+        View root = inflater.inflate(R.layout.fragment_carrito, container, false);
 
-//        addMachineButton = root.findViewById(R.id.addMachineButton);
-//        addMachineButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                MachineDialog machineDialog = new MachineDialog(null);
-//                machineDialog.show(getActivity().getSupportFragmentManager(), "Machine");
-//                machineDialog.setOnSubmitCallback(new Function() {
-//                    @Override
-//                    public Object apply(Object input) {
-//
-//                        getActivity().runOnUiThread(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                MachinesFragment.this.syncUpdate();
-//                            }
-//                        });
-//
-//                        return null;
-//                    }
-//                });
-//            }
-//        });
-//
-//        refreshMachinesButton = root.findViewById(R.id.refreshMachinesButton);
-//        refreshMachinesButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                syncUpdate();
-//            }
-//        });
-//
-//        machinesInfo = root.findViewById(R.id.machinesInfo);
-//
-//        machinesRecyclerView = root.findViewById(R.id.machinesRecyclerView);
-//        machinesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//
-//        TiendaManager.getInstance().statusChangedNotifier.addCallback(new Function() {
-//            @Override
-//            public Object apply(Object input) {
-//
-//                getActivity().runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        MachinesFragment.this.updateUI();
-//                    }
-//                });
-//
-//                return null;
-//            }
-//        });
-//
-//        this.syncUpdate();
+        carritoRecyclerView = root.findViewById(R.id.carritoRecyclerView);
+        carritoRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        TiendaManager.getInstance().fetchCarrito();
+
+        updateUI();
         return root;
+    }
+
+    public void updateUI() {
+        ArrayList<Producto> carrito = TiendaManager.getInstance().getCarrito();
+        CarritoAdapter adapter = new CarritoAdapter(getContext(), carrito);
+        adapter.setOnItemClickListener(new CarritoAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                ArrayList<Producto> productos = TiendaManager.getInstance().getCarrito();
+                TiendaManager.getInstance().borrarProductoDeCarrito(productos.get(position));
+            }
+        });
+
+        carritoRecyclerView.setAdapter(adapter);
     }
 }
