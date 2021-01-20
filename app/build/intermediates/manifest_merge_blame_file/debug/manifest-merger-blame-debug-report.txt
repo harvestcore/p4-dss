@@ -17,57 +17,102 @@
 12-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:7:5-81
 12-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:7:22-78
 13
-14    <application
-14-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:9:5-29:19
-15        android:allowBackup="true"
-15-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:11:9-35
-16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-16-->[androidx.core:core:1.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/34b4ab0d8b65ac74ddd00d45b26dd963/core-1.1.0/AndroidManifest.xml:24:18-86
-17        android:debuggable="true"
-18        android:icon="@mipmap/ic_launcher"
-18-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:12:9-43
-19        android:label="@string/app_name"
-19-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:13:9-41
-20        android:roundIcon="@mipmap/ic_launcher_round"
-20-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:14:9-54
-21        android:supportsRtl="true"
-21-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:15:9-35
-22        android:theme="@style/AppTheme"
-22-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:16:9-40
-23        android:usesCleartextTraffic="true" >
-23-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:10:9-44
-24        <activity
-24-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:17:9-28:20
-25            android:name="com.dss.p4dss.MainActivity"
-25-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:18:13-54
-26            android:label="@string/app_name"
-26-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:19:13-45
-27            android:screenOrientation="portrait"
-27-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:20:13-49
-28            android:theme="@style/AppTheme.NoActionBar" >
-28-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:21:13-56
-29            <intent-filter>
-29-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:23:13-27:29
-30                <action android:name="android.intent.action.MAIN" />
-30-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:24:17-69
-30-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:24:25-66
-31
-32                <category android:name="android.intent.category.LAUNCHER" />
-32-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:26:17-77
-32-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:26:27-74
-33            </intent-filter>
-34        </activity>
-35
-36        <provider
-36-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a7777210eeae7ec0839470505116d148/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
-37            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-37-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a7777210eeae7ec0839470505116d148/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
-38            android:authorities="com.dss.p4dss.lifecycle-process"
-38-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a7777210eeae7ec0839470505116d148/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
-39            android:exported="false"
-39-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a7777210eeae7ec0839470505116d148/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
-40            android:multiprocess="true" />
-40-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a7777210eeae7ec0839470505116d148/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
-41    </application>
-42
-43</manifest>
+14    <uses-feature
+14-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/2ad1a49018e86546e27be505a3571b6a/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:9:5-11:35
+15        android:glEsVersion="0x00020000"
+15-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/2ad1a49018e86546e27be505a3571b6a/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:10:9-41
+16        android:required="true" />
+16-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/2ad1a49018e86546e27be505a3571b6a/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:11:9-32
+17    <uses-feature
+17-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/2ad1a49018e86546e27be505a3571b6a/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:12:5-14:36
+18        android:name="android.hardware.wifi"
+18-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/2ad1a49018e86546e27be505a3571b6a/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:13:9-45
+19        android:required="false" />
+19-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/2ad1a49018e86546e27be505a3571b6a/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:14:9-33
+20
+21    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+21-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/2ad1a49018e86546e27be505a3571b6a/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:17:5-79
+21-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/2ad1a49018e86546e27be505a3571b6a/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:17:22-76
+22    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+22-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/2ad1a49018e86546e27be505a3571b6a/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:18:5-76
+22-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/2ad1a49018e86546e27be505a3571b6a/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:18:22-73
+23    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Required for CrashReporterJobIntentService on API levels below 25 -->
+23-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/2ad1a49018e86546e27be505a3571b6a/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:19:5-79
+23-->[com.mapbox.mapboxsdk:mapbox-android-sdk:9.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/2ad1a49018e86546e27be505a3571b6a/jetified-mapbox-android-sdk-9.1.0/AndroidManifest.xml:19:22-76
+24    <uses-permission android:name="android.permission.WAKE_LOCK" />
+24-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/abe23371dc40312d919f0e028e178447/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:12:5-68
+24-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/abe23371dc40312d919f0e028e178447/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:12:22-65
+25
+26    <application
+26-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:9:5-29:19
+27        android:allowBackup="true"
+27-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:11:9-35
+28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+28-->[androidx.core:core:1.1.0] /home/angel/.gradle/caches/transforms-2/files-2.1/34b4ab0d8b65ac74ddd00d45b26dd963/core-1.1.0/AndroidManifest.xml:24:18-86
+29        android:debuggable="true"
+30        android:icon="@mipmap/ic_launcher"
+30-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:12:9-43
+31        android:label="@string/app_name"
+31-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:13:9-41
+32        android:roundIcon="@mipmap/ic_launcher_round"
+32-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:14:9-54
+33        android:supportsRtl="true"
+33-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:15:9-35
+34        android:testOnly="true"
+35        android:theme="@style/AppTheme"
+35-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:16:9-40
+36        android:usesCleartextTraffic="true" >
+36-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:10:9-44
+37        <activity
+37-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:17:9-28:20
+38            android:name="com.dss.p4dss.MainActivity"
+38-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:18:13-54
+39            android:label="@string/app_name"
+39-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:19:13-45
+40            android:screenOrientation="portrait"
+40-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:20:13-49
+41            android:theme="@style/AppTheme.NoActionBar" >
+41-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:21:13-56
+42            <intent-filter>
+42-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:23:13-27:29
+43                <action android:name="android.intent.action.MAIN" />
+43-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:24:17-69
+43-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:24:25-66
+44
+45                <category android:name="android.intent.category.LAUNCHER" />
+45-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:26:17-77
+45-->/home/angel/Escritorio/p4-dss/app/src/main/AndroidManifest.xml:26:27-74
+46            </intent-filter>
+47        </activity>
+48
+49        <provider
+49-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/abe23371dc40312d919f0e028e178447/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:18:9-22:39
+50            android:name="com.mapbox.android.telemetry.provider.MapboxTelemetryInitProvider"
+50-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/abe23371dc40312d919f0e028e178447/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:19:13-93
+51            android:authorities="com.dss.p4dss.mapboxtelemetryinitprovider"
+51-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/abe23371dc40312d919f0e028e178447/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:20:13-79
+52            android:exported="false"
+52-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/abe23371dc40312d919f0e028e178447/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:21:13-37
+53            android:initOrder="100" />
+53-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/abe23371dc40312d919f0e028e178447/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:22:13-36
+54
+55        <service
+55-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/abe23371dc40312d919f0e028e178447/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:24:9-26:72
+56            android:name="com.mapbox.android.telemetry.crash.CrashReporterJobIntentService"
+56-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/abe23371dc40312d919f0e028e178447/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:25:13-92
+57            android:permission="android.permission.BIND_JOB_SERVICE" />
+57-->[com.mapbox.mapboxsdk:mapbox-android-telemetry:5.0.0] /home/angel/.gradle/caches/transforms-2/files-2.1/abe23371dc40312d919f0e028e178447/jetified-mapbox-android-telemetry-5.0.0/AndroidManifest.xml:26:13-69
+58
+59        <provider
+59-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a7777210eeae7ec0839470505116d148/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+60            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+60-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a7777210eeae7ec0839470505116d148/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+61            android:authorities="com.dss.p4dss.lifecycle-process"
+61-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a7777210eeae7ec0839470505116d148/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+62            android:exported="false"
+62-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a7777210eeae7ec0839470505116d148/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+63            android:multiprocess="true" />
+63-->[androidx.lifecycle:lifecycle-process:2.2.0] /home/angel/.gradle/caches/transforms-2/files-2.1/a7777210eeae7ec0839470505116d148/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+64    </application>
+65
+66</manifest>

@@ -8,6 +8,7 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.dss.p4dss.ui.main.SectionsPagerAdapter;
+import com.mapbox.mapboxsdk.Mapbox;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,16 +16,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ///////
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
-        // Initialize managers
+        Mapbox.getInstance(getApplicationContext(), getString(R.string.mapbox_access_token));
+
         TiendaManager.getInstance().setContext(getBaseContext());
         TiendaManager.getInstance().fetchProductos();
-
-//        TiendaManager.getInstance().setView(findViewById(android.R.id.content).getRootView());
+        ///////
     }
 }

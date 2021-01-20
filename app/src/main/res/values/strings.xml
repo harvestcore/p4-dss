@@ -3,4 +3,8 @@
     <string name="tab_1">Productos</string>
     <string name="tab_2">Carrito</string>
     <string name="tab_3">Login</string>
+    <string name="tab_4">Mapa</string>
+
+
+    <string name="mapbox_access_token">pk.eyJ1IjoiaGFydmVzdGNvcmUiLCJhIjoiY2s4dTd3cThoMDQ0MjNlcGhhcmpmc2hudiJ9.jnyWXJ3rpagUz9BWxMq_zg</string>
 </resources>

@@ -1,7 +1,9 @@
 package com.dss.p4dss.ui.main;
 
 import android.content.Context;
+import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
@@ -9,6 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.dss.p4dss.R;
+import com.dss.p4dss.mapa.MapaFragment;
 import com.dss.p4dss.productos.ProductosFragment;
 import com.dss.p4dss.carrito.CarritoFragment;
 import com.dss.p4dss.settings.SettingsFragment;
@@ -16,7 +19,7 @@ import com.dss.p4dss.settings.SettingsFragment;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_1, R.string.tab_3};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_1, R.string.tab_2, R.string.tab_4, R.string.tab_3};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -32,6 +35,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             case 1:
                 return CarritoFragment.newInstance();
             case 2:
+                return MapaFragment.newInstance();
+            case 3:
                 return SettingsFragment.newInstance();
         }
         return PlaceholderFragment.newInstance(position + 1);
