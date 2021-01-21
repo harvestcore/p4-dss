@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ///////
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
@@ -26,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
         Mapbox.getInstance(getApplicationContext(), getString(R.string.mapbox_access_token));
 
-        TiendaManager.getInstance().setContext(getBaseContext());
         TiendaManager.getInstance().fetchProductos();
-        ///////
     }
 }

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/angel/Escritorio/p4-dss/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w820dp-v13/values-w820dp-v13.xml",
+            "outputFile": "/home/angel/Escritorio/GomezMartinAngelPinarRivasAngel/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w820dp-v13/values-w820dp-v13.xml",
             "map": [
                 {
-                    "source": "/home/angel/Escritorio/p4-dss/app/src/main/res/values-w820dp/dimens.xml",
+                    "source": "/home/angel/Escritorio/GomezMartinAngelPinarRivasAngel/app/src/main/res/values-w820dp/dimens.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "4",

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lytContenedor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+    <TextView
+        android:id="@+id/lblLoginUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Nombre de usuario"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+    <EditText
+        android:id="@+id/txtLoginUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:inputType="text"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"/>
+
+    <TextView
+        android:id="@+id/lblLoginPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="Contraseña"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+    <EditText
+        android:id="@+id/txtLoginPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:inputType="textPassword"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:elevation="0dp"
+        android:text="Iniciar Sesión" />
+
+</LinearLayout>

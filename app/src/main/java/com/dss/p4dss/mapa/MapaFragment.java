@@ -45,8 +45,6 @@ public class MapaFragment extends Fragment {
                     @Override
                     public void onStyleLoaded(@NonNull Style style) {
                         style.addImage("map-marker", BitmapFactory.decodeResource(MapaFragment.this.getResources(), R.drawable.mapbox_marker_icon_default));
-//                        MapManager.getInstance().setMap(style);
-//                        MapManager.getInstance().plotPoints();
                     }
                 });
             }

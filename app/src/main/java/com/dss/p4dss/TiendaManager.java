@@ -12,15 +12,13 @@ public class TiendaManager {
     private static TiendaManager tiendaManager;
     private static String baseURL = "http://192.168.1.110:8080/GomezMartinAngel/api";
 
+    Context apiContext;
+
     APIConnector apiConnector;
     Credentials credentials;
 
-    ///////////////
-
     ArrayList<Producto> productos;
     ArrayList<Producto> carrito;
-
-    ///////////////
 
     private TiendaManager() {
         apiConnector = new APIConnector();
@@ -39,6 +37,11 @@ public class TiendaManager {
 
     public void setContext(Context context) {
         apiConnector.setContext(context);
+        this.apiContext = context;
+    }
+
+    public Context getContext() {
+        return this.apiContext;
     }
 
     public String getServerURL() { return this.baseURL; }
@@ -69,15 +72,7 @@ public class TiendaManager {
         this.getCarrito().remove(p);
     }
 
-    public void login(String username, String password) {
-        this.apiConnector.login(username, password);
-    }
-
     public void agregarProducto(Producto p) {
         this.apiConnector.addProducto(p);
-    }
-
-    public void agregarUsuario(Credentials c) {
-        this.apiConnector.addUsuario(c);
     }
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lytContenedor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/lblBienvenido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Bienvenido"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+    <Button
+        android:id="@+id/btnInicioSesion"
+        android:layout_width="170dp"
+        android:layout_height="70dp"
+        android:text="Iniciar sesión"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/activity_vertical_margin"/>
+
+    <Button
+        android:id="@+id/btnRegistro"
+        android:layout_width="170dp"
+        android:layout_height="70dp"
+        android:text="Registrarse"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/activity_vertical_margin" />
+
+</LinearLayout>

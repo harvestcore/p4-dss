@@ -28,46 +28,6 @@ public class APIConnector {
         requestQueue = Volley.newRequestQueue(context);
     }
 
-    public void login(String username, String password) {
-        String url = TiendaManager.getInstance().getServerURL() + "/user/login";
-        JSONObject query = new JSONObject();
-        try {
-            query.put("username", username);
-            query.put("password", password);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        CustomObjectRequest request = new CustomObjectRequest(Request.Method.POST, url, query, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    int id = response.getInt("id");
-
-                    if (id != 0) {
-                        TiendaManager.getInstance().setCredentials(new Credentials(
-                                response.getInt("id"),
-                                response.getString("name"),
-                                response.getString("username"),
-                                response.getString("password"),
-                                response.getBoolean("admin")
-                        ));
-                        TiendaManager.getInstance().fetchCarrito();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
-
-        requestQueue.add(request);
-    }
-
     public void getProductos() {
         String url = TiendaManager.getInstance().getServerURL() + "/product";
 
@@ -172,52 +132,24 @@ public class APIConnector {
                 public void onResponse(JSONObject response) {
                     try {
                         ArrayList<Producto> prods = new ArrayList<>();
-                        JSONArray aux = response.getJSONArray("products");
-                        for (int i = 0; i < aux.length(); ++i) {
-                            JSONObject xd = aux.getJSONObject(i);
-                            prods.add(new Producto(
-                                    xd.getInt("id"),
-                                    xd.getString("name"),
-                                    xd.getString("family"),
-                                    xd.getDouble("price")
-                            ));
+
+                        if (!response.isNull("products")) {
+                            JSONArray aux = response.getJSONArray("products");
+                            for (int i = 0; i < aux.length(); ++i) {
+                                JSONObject obj = aux.getJSONObject(i);
+                                prods.add(new Producto(
+                                        obj.getInt("id"),
+                                        obj.getString("name"),
+                                        obj.getString("family"),
+                                        obj.getDouble("price")
+                                ));
+                            }
                         }
 
                         TiendaManager.getInstance().setCarrito(prods);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    error.printStackTrace();
-                }
-            });
-
-            requestQueue.add(request);
-        }
-    }
-
-    public void addUsuario(Credentials user) {
-        String url = TiendaManager.getInstance().getServerURL() + "/user";
-        Credentials c = TiendaManager.getInstance().getCredentials();
-
-        if (c != null && c.id != 0) {
-            JSONObject query = new JSONObject();
-            try {
-                query.put("name", user.name);
-                query.put("username", user.username);
-                query.put("password", user.password);
-                query.put("admin", user.admin);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            CustomObjectRequest request = new CustomObjectRequest(Request.Method.POST, url, query, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    // Update UI
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -248,7 +180,7 @@ public class APIConnector {
             CustomObjectRequest request = new CustomObjectRequest(Request.Method.POST, url, query, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    // Update UI
+                    TiendaManager.getInstance().fetchProductos();
                 }
             }, new Response.ErrorListener() {
                 @Override

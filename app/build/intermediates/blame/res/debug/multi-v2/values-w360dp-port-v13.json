@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/angel/Escritorio/p4-dss/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w360dp-port-v13/values-w360dp-port-v13.xml",
+            "outputFile": "/home/angel/Escritorio/GomezMartinAngelPinarRivasAngel/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w360dp-port-v13/values-w360dp-port-v13.xml",
             "map": [
                 {
                     "source": "/home/angel/.gradle/caches/transforms-2/files-2.1/ae67d481176994a76afa6f312b4e8a78/material-1.1.0/res/values-w360dp-port-v13/values-w360dp-port-v13.xml",

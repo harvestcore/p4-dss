@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/angel/Escritorio/p4-dss/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ru/values-ru.xml",
+            "outputFile": "/home/angel/Escritorio/GomezMartinAngelPinarRivasAngel/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ru/values-ru.xml",
             "map": [
                 {
                     "source": "/home/angel/.gradle/caches/transforms-2/files-2.1/2ad1a49018e86546e27be505a3571b6a/jetified-mapbox-android-sdk-9.1.0/res/values-ru/values-ru.xml",

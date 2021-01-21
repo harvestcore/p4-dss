@@ -36,7 +36,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name="com.dss.p4dss.MainActivity"
+            android:name="com.dss.p4dss.InicioActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
@@ -46,6 +46,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.dss.p4dss.LoginActivity" />
+        <activity android:name="com.dss.p4dss.RegistroActivity" />
+        <activity android:name="com.dss.p4dss.MainActivity" />
 
         <provider
             android:name="com.mapbox.android.telemetry.provider.MapboxTelemetryInitProvider"
